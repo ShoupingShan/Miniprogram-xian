@@ -1,0 +1,43 @@
+<!--pages/peonyResult/peonyResult.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class="peonyResult homePageBg" id="peonyResult">
+  <!-- 牡丹花图片的对比结果 -->
+  <view class='peonyInfo-imageBox'>
+    <view class='peonyInfo-imageBox_item'>
+      <view class='imageBox-item_uploadImg'>
+        <image src='{{uploadResultImg}}' mode='cover' bindtap='clickUpload'></image>
+        <text class='item-uploadImg_text'>上传图片</text>
+      </view>
+      <view class='imageBox-item_tempImg'>
+        <image src='{{coverResultImg}}' mode='cover' bindtap='clickCover'></image>
+        <text class='item-tempImg_text'>模板图片</text>
+      </view>
+    </view>
+    <view class='peonyInfo-locationAndDate'>
+    <!-- 获取的地理位置 -->
+      <view class='peonyInfo-location'>
+        <image class='peonyInfo-location_icon' src='../../images/didian.png' mode='cover'></image>
+        <text class='peonyInfo-location_text'>{{peonyLocation}}</text>
+      </view>
+      <!-- 获取的时间 -->
+      <view class='peonyInfo-Date'>
+        <image class='peonyInfo-date_icon' src='../../images/shijian.png' mode='cover'></image>
+        <text class='peonyInfo-date_text'>{{peonyResultTimes}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 牡丹花名称 -->
+  <view class='peonyInfo-names'>
+    <text>牡丹</text>
+    <text class='peonyInfo-names_text'>{{peonyResultname}}</text>
+  </view>
+  <view class='intro-text'>
+    <text>简介</text>
+  </view>
+  <!-- 显示牡丹花详细信息 -->
+  <view class='content' style='height:{{scrollHeight}}px'>
+    <view class='content-template'>
+      <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+    </view>
+  </view>
+</view>

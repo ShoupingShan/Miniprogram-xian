@@ -1,0 +1,20 @@
+<!--pages/animation/animation.wxml-->
+
+
+<view class="container">
+    <view id="loading" >
+        <view id="loading-center">
+            <view id="loading-center-absolute">
+                <view class="object" id="object_one"></view>
+                <view class="object" id="object_two"></view>
+                <view class="object" id="object_three"></view>
+                <view class="object" id="object_four"></view>
+                <view class="object" id="object_five"></view>
+                <view class="object" id="object_six"></view>
+                <view class="object" id="object_seven"></view>
+                <view class="object" id="object_eight"></view>
+                <view class="object" id="object_big"></view>
+            </view>
+        </view>
+    </view>
+</view>

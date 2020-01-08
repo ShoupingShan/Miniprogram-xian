@@ -1,0 +1,24 @@
+<!--pages/photoRec/photoRec.wxml-->
+<view class="peonyRecContainer homePageBg">
+  <view class='peonyRec-flower'>
+    <view class='peonyRec-flower_item'>
+      <image src='{{uploadImg}}' mode='cover' class='flower-image'></image>
+    </view>
+  </view>
+  <view id="loading-center">
+    <view id="loading-center-absolute">
+      <view class="object" id="object_one"></view>
+      <view class="object" id="object_two"></view>
+      <view class="object" id="object_three"></view>
+      <view class="object" id="object_four"></view>
+      <view class="object" id="object_five"></view>
+      <view class="object" id="object_six"></view>
+      <view class="object" id="object_seven"></view>
+      <view class="object" id="object_eight"></view>
+      <view class="object" id="object_big"></view>
+    </view>
+  </view>
+  <view class='selectImage'>
+    <text>正在识别...</text>
+  </view>
+</view>

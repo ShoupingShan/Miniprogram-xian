@@ -1,0 +1,52 @@
+/* pages/peonyNoNetwork/peonyNoNetwork.wxss */
+
+.peonyNoNetwork {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.peonyNoNetwork-title {
+  width: 200rpx;
+  height: 232rpx;
+  margin: 0 auto;
+  margin-top: 201rpx;
+  overflow: hidden;
+}
+
+.peonyNoNetwork-title image {
+  width: 200rpx;
+  height: 232rpx;
+}
+
+.peonyNoNetwork-text {
+  margin-top: 56rpx;
+  text-align: center;
+}
+
+.serve-newwork {
+  font-size: 38rpx;
+  color: #474749;
+}
+
+.serve-shouldRefresh {
+  margin-top: 21rpx;
+  font-size: 25rpx;
+  color:  #A8A5A9;
+}
+
+.refresh-newWork {
+  margin-top: 63rpx;
+}
+
+.refresh-text {
+width:204rpx;
+height:63rpx;
+border:1px solid rgba(219,216,219,1);
+background:linear-gradient(0deg,rgba(241,241,243,1) 0%,rgba(253,250,254,1) 100%);
+border-radius:8rpx;
+font-size: 25rpx;
+line-height: 63rpx;
+margin: 0 auto;
+text-align: center;
+}

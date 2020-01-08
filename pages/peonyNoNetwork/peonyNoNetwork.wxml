@@ -1,0 +1,17 @@
+<!--pages/peonyNoNetwork/peonyNoNetwork.wxml-->
+<template name="penonyNoNetWork">
+  <view class='peonyNoNetwork homePageBg'>
+    <view class='peonyNoNetwork-title'>
+      <image src='../../images/PeonyTitle.png' mode='cover'></image>
+    </view>
+    <view class='peonyNoNetwork-text'>
+      <view class='serve-newwork'>页面加载失败</view>
+      <view class='serve-shouldRefresh'>请检查网络连接</view>
+    </view>
+    <view class='refresh-newWork'>
+      <view class='refresh-text' catchtap='refreshBtn'>
+        <text>刷新</text>
+      </view>
+    </view>
+  </view>
+</template>

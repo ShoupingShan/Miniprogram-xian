@@ -1,0 +1,22 @@
+<!-- <import src="../../wxParse/wxParse.wxml" /> -->
+<block>
+  <view class="shop" wx:for="{{peonyList}}" wx:for-index="bindIndex" wx:key="item" wx:for-item="item">
+    <image class="shop-img" src="{{peonyList[bindIndex].cover}}" data-templateId="{{peonyList[bindIndex].templateId}}" bindlongtap='jumpViewDetails(item)'></image>
+    <view class="shop-info">
+      <view class="shop-title">
+        <view class='shop-title_name'>名称:</view>
+        <view class='shop-title_text'>{{item.name}}</view>
+      </view>
+      <view class='shop-introduction '>
+        <view class='shop-introduction_title'>内容介绍:</view>
+        <view class=' shop-introduction-text '>
+           <text class='ell'>{{peonyList[bindIndex].text}}</text>
+        </view>
+      </view>
+      <text class="shop-time">上传时间：{{peonyList[bindIndex].createTime}}</text>
+    </view>
+  </view>
+</block>
+<view class="loadmore loading" wx:if="{{ hasMore && peonyList.length>0  }}">正在加载...</view>
+<view class="loadmore" wx:if="{{!hasMore}}">已加载全部数据</view>
+<view class='noDataText' wx:if="{{isShow && !peonyList.length}}">暂无数据</view>

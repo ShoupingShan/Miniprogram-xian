@@ -1,0 +1,198 @@
+/* pages/peonyInfo/peonyInfo.wxss */
+@import "../peonyNoNetwork/peonyNoNetwork.wxss";
+/* page {
+  height: 100%;
+} */
+
+.peonyInfo {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* 图片盒子 */
+
+.peonyInfo-imageBox {
+  width: 100%;
+  height: 417rpx;
+  background: #f2f2f2;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.peonyInfo-imageBox_item {
+  height: 365rpx;
+  overflow: hidden;
+  padding-left: 5rpx;
+  padding-right: 5rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* 上传图片 */
+
+.imageBox-item_uploadImg {
+  width: 365rpx;
+  height: 365rpx;
+  border-radius: 10rpx;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 模板图片 */
+
+.imageBox-item_tempImg {
+  width: 365rpx;
+  border-radius: 10rpx;
+  height: 365rpx;
+  /* margin-left: 18rpx; */
+  position: relative;
+  overflow: hidden;
+}
+
+/* 设置图片大小 */
+
+.imageBox-item_tempImg  image, .imageBox-item_uploadImg image {
+  width: 365rpx;
+  height: 365rpx;
+}
+
+/* 设置图片文字位置 */
+
+.item-tempImg_text, .item-uploadImg_text {
+  position: absolute;
+  right: 5rpx;
+  top: 12rpx;
+}
+
+/* 设置模板图片文字大小 */
+
+.item-tempImg_text {
+  font-size: 25rpx;
+  color: #fb9ead;
+  font-weight: 400;
+}
+
+/* 设置上传图片文字大小 */
+
+.item-uploadImg_text {
+  font-size: 25rpx;
+  color: #000;
+  font-weight: 400;
+}
+
+.peonyInfo-locationAndDate {
+  width: 100%;
+  height: 52rpx;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  font-size: 25rpx;
+}
+
+.peonyInfo-location {
+  width: 50%;
+  display: flex;
+  padding-left: 21rpx;
+  box-sizing: border-box;
+  align-items: center;
+}
+.peonyInfo-location_icon{
+  width: 15rpx;
+  height: 21rpx;
+}
+.peonyInfo-location_text{
+  margin-left: 15rpx;
+  color: #666666;
+}
+
+.peonyInfo-Date {
+  width: 50%;
+  display: flex;
+  padding-right: 21rpx;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-end;
+}
+.peonyInfo-date_icon{
+width: 21rpx;
+height: 21rpx;
+margin-right: 15rpx;
+}
+.peonyInfo-date_text{
+color: #666666;
+}
+
+/*牡丹花种类 */
+
+.peonyInfo-names {
+  width: 100%;
+  padding-left: 21rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-size: 38rpx;
+  line-height: 88rpx;
+  height: 88rpx;
+  color: #000;
+  border-bottom: 1px solid #ccc;
+}
+
+/* 牡丹花类别 */
+
+.peonyInfo-names_text {
+  margin-left: 15rpx;
+}
+.intro-text {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 31rpx;
+  color: #333;
+  height: 35rpx;
+  overflow: hidden;
+  padding-left: 21rpx;
+  margin-top: 21rpx;
+}
+/* 富文本编辑器设置 */
+
+.content{
+  margin-top: 25rpx;
+  /* height: 600rpx; */
+  overflow: auto;
+  width: 100%;
+  padding-right:21rpx; 
+  padding-left: 21rpx;
+  padding-bottom: 35rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+
+/*凹槽宽度*/
+/* .content::-webkit-scrollbar {
+  width: 8rpx;
+  height: 8rpx;
+} */
+
+/*拖动条*/
+
+/* .content::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 6rpx;
+} */
+
+/*背景槽*/
+
+/* .content::-webkit-scrollbar-track {
+  background-color: #ddd;
+  border-radius: 6rpx;
+} */
+
+
+::-webkit-scrollbar{
+width: 0;
+height: 0;
+color: transparent;
+}

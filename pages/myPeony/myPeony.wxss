@@ -1,0 +1,197 @@
+/* pages/myPeony/myPeony.wxss */
+
+@import '../peonyNoNetwork/peonyNoNetwork.wxss';
+page {
+  height: 100%;
+}
+
+.myPeonyContainer {
+  width: 100%;
+  height: 100%;
+  background: #f2f2f2;
+  overflow: hidden;
+}
+
+/* 头像盒子 */
+
+.headPortraitBox {
+  width: 750rpx;
+  height: 383rpx;
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* 设置头像区域 */
+
+.headPortrait {
+  margin: 0 auto;
+  margin-top: 52rpx;
+}
+
+/* 设置头像图片 */
+
+.headPortrait image {
+  width: 173rpx;
+  height: 173rpx;
+  border-radius: 50%;
+}
+
+/* 设置头像昵称 */
+
+.wechartNickName {
+  margin-top: 21rpx;
+  text-align: center;
+  width: 100%;
+  color: #333;
+  font-size: 31rpx;
+}
+
+/* 识别记录条数 */
+
+.identificationRecord {
+  text-align: center;
+  margin-top: 19rpx;
+  width: 100%;
+  color: #333;
+  font-size: 31rpx;
+}
+
+/* 识别纪录 文字*/
+
+.distinguish-text {
+  width: 100%;
+  height: 67rpx;
+  line-height: 67rpx;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-size: 29rpx;
+  color: #000;
+}
+
+/* 识别纪录展示信息 */
+
+.recordInformation {
+  width: 100%;
+  /* height: 660rpx; */
+  /* overflow: hidden; */
+  background: #fff;
+  padding-left: 20rpx;
+  /* padding-bottom: 140rpx; */
+  /* border-bottom: 20rpx;  */
+}
+.recordInformation scroll-view{
+  /* height: 700rpx; */
+  /* padding-bottom:41rpx; */
+  box-sizing: border-box;
+  width: 710rpx; 
+} 
+
+/* 识别纪录展示信息每列 */
+
+.recordInformation-item {
+  width: 710rpx;
+  height: 176rpx;
+  border-bottom: 1px solid #e8e8e8;
+  box-sizing: border-box;
+  padding-top: 21rpx;
+  flex-direction: row;
+  justify-content: center;
+  display: flex;
+}
+
+
+/* 设置上传历史信息的图片 */
+
+.recordInformation-item_image, .recordInformation-item_image image {
+  width: 135rpx;
+  height: 135rpx;
+  overflow: hidden;
+}
+
+/* 设置记录详细信息 */
+
+.recordInformation-item_info {
+  width: 555rpx;
+  display: flex;
+  height: 135rpx;
+  padding-left: 25rpx;
+  flex-direction: column;
+  position: relative;
+  /* justify-content: space-between; */
+  justify-content: space-around;
+}
+
+/* 返回按钮 */
+
+.recordInformation-item_back {
+  position: absolute;
+  width: 25rpx;
+  height: 42rpx;
+  overflow: hidden;
+  top: 50rpx;
+  right: 0rpx;
+}
+
+.recordInformation-item_back image {
+  width: 25rpx;
+  height: 42rpx;
+}
+
+/* 名称信息展示 */
+
+.item-Infoname {
+  font-size: 31rpx;
+  color: #000;
+  font-weight: normal;
+}
+
+/* 设置牡丹花名称的文字 */
+
+.item-Infoname_text {
+  margin-left: 15rpx;
+}
+
+/* 设置日期 */
+
+.item-data {
+  font-size: 31rpx;
+  color: #8f8e94;
+  font-weight: normal;
+}
+
+/* 日期文字大小 */
+
+.item-data_text {
+  margin-left: 15rpx;
+}
+
+
+/* recordInformation::-webkit-scrollbar {
+  width: 8rpx;
+  height: 8rpx;
+} */
+
+/*拖动条*/
+
+/* .recordInformation::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 6rpx;
+} */
+
+/*背景槽*/
+
+/* .recordInformation::-webkit-scrollbar-track {
+  background-color: #ddd;
+  border-radius: 6rpx;
+} */
+
+
+::-webkit-scrollbar{
+width: 0;
+height: 0;
+color: transparent;
+}

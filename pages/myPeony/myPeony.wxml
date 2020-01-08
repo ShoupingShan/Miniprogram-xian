@@ -1,0 +1,47 @@
+<import src="../peonyNoNetwork/peonyNoNetwork" />
+<view class="myPeonyContainer" wx:if="{{judgeNetWork}}">
+  <view class='headPortraitBox'>
+  <!-- 头像 -->
+    <view class='headPortrait'>
+      <image src='{{wechartImg}}' mode="cover"></image>
+    </view>
+    <view class="wechartNickName">
+      <text>{{wechartNickName}}</text>
+    </view>
+    <view class='identificationRecord'>
+      <text>{{identificationRecordNum}}条记录</text>
+    </view>
+  </view>
+  <view class='distinguish-text' >识别纪录</view>
+  <!-- 识别纪录 -->
+  <view class='recordInformation'>
+    <scroll-view scroll-y="{{true}}" style='height:{{scrollHeight}}px' class='scroll-view' bindscroll="bindscroll" bindscrolltolower="bindDownLoad" bindscrolltoupper="topLoad">
+      <block wx:for="{{peonyList}}" wx:for-index="bindIndex" wx:key="item" wx:for-item="item">
+        <view class='recordInformation-item' bindtap="selHistorical" data-item="{{item.templateId}}">
+          <view class='recordInformation-item_image'>
+            <image src='{{item.shotImage}}' mode='cover'></image>
+          </view>
+          <view class='recordInformation-item_info'>
+            <view class='item-Infoname'>
+              <text class='item-Infoname_names'>名称:</text>
+              <text class='item-Infoname_text'>{{item.name}}</text>
+            </view>
+            <view class='item-data'>
+              <text class='item-data_time'>时间:</text>
+              <text class='item-data_text'>{{item.createTime}}</text>
+            </view>
+            <view class='recordInformation-item_back'>
+              <image src='../../images/more-distinguish.png'></image>
+            </view>
+          </view>
+        </view>
+      </block>
+      <view class="loadmore loading" wx:if="{{hasMore && peonyList.length>6 }}">正在加载...</view>
+      <view class="loadmore" wx:if="{{!hasMore && (peonyList.length ==identificationRecordNum) &&(peonyList.length>7)}}">已加载全部数据</view>
+    </scroll-view>
+  </view>
+</view>
+<!-- 判断有无网络 -->
+<view class='PeonyPublicNetWork' wx:if="{{!judgeNetWork}}">
+  <template is="penonyNoNetWork" />
+</view>

@@ -1,0 +1,35 @@
+<!--pages/peonySearch/peonySearch.wxml-->
+<import src="../peonyNoNetwork/peonyNoNetwork.wxml" />
+<view class="peonySearch-container" wx:if="{{judgeNetWork}}">
+  <!-- 搜索栏显示 -->
+  <view class='searchBox'>
+    <input type='text' bindinput="inputVal" placeholder='畅玩西安' value='{{searchVal}}' class='searchInp' bindblur='blurSearch'></input>
+    <image src='../../images/search-icon.png' class='searchIcon'></image>
+    <text class='cancelSearch' bindtap='cancelSearch'>取消</text>
+  </view>
+  <!-- 牡丹花品种介绍 -->
+  <view class='peonySearch-image' wx:if="{{isJudge}}">
+    <view class="peonySearch-image_item" wx:for="{{searchList}}" wx:key="item">
+      <view class='image-item' data-template="{{item.id}}" bindtap='detailsPeony'>
+        <image src='{{item.coverImageUrl}}'></image>
+      </view>
+      <view class="image-item_name">{{item.name}}</view>
+    </view>
+  </view>
+  <view wx:if="{{isJudge}}">
+    <view class="loadmore loading" wx:if="{{hasMore && searchList.lenght>6}}">正在加载...</view>
+    <view class="loadmore" wx:if="{{!hasMore && searchList.length>10 }}">已经显示全部数据</view>
+  </view>
+  <view class='judgeSearch' wx:if="{{!isJudge}}">
+    <view class="peonySearch-image_item" wx:for="{{searchResult}}" wx:key="item">
+      <view class='image-item' data-template="{{item.id}}" bindtap='detailsPeony'>
+        <image src='{{item.coverImageUrl}}'></image>
+      </view>
+      <view class="image-item_name">{{item.name}}</view>
+    </view>
+  </view>
+</view>
+<!-- 判断有误网络状态 -->
+<view class='PeonyPublicNetWork' wx:if="{{!judgeNetWork}}">
+  <template is="penonyNoNetWork" />
+</view>

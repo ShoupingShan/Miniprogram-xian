@@ -1,0 +1,36 @@
+<import src="../peonyNoNetwork/peonyNoNetwork.wxml" />
+<view class="peonyHomePageContainer homePageBg" wx:if="{{judgeNetWork}}">
+  <view class='peonyHomePage-flower'>
+    <view class='peonyHomePage-flower_item'>
+      <image src='{{tempFilePath}}' mode='cover' class='flower-image'></image>
+    </view>
+  </view>
+  <view class='peonyHomePage-camera' bindtap='chooseimage' wx:if="{{isShow}}">
+    <image src="../../images/xiangji.png" class='camera-phone'></image>
+    <text class='camera-text'>选择图片</text>
+  </view>
+  <!-- <view class='selectImage' wx:if="{{isShow}}" >
+    <text >从相册中选图</text>
+    <image src='../../images/phone-back.png' class='selectImage-back' mode='cover'></image>
+  </view> -->
+  <!-- 上传Loding -->
+  <view id="loading-center-absolute" wx:if="{{!isShow}}">
+    <view class="object" id="object_one"></view>
+    <view class="object" id="object_two"></view>
+    <view class="object" id="object_three"></view>
+    <view class="object" id="object_four"></view>
+    <view class="object" id="object_five"></view>
+    <view class="object" id="object_six"></view>
+    <view class="object" id="object_seven"></view>
+    <view class="object" id="object_eight"></view>
+    <view class="object" id="object_big"></view>
+  </view>
+  <!-- 上传信息 -->
+  <view class='selectImgText' wx:if="{{!isShow}}">
+    <text style='color:#f45652;'>拼命加载中<text  class="dotting"></text></text>
+  </view>
+</view>
+<!-- 有无网络判断 -->
+<view class='PeonyPublicNetWork' wx:if="{{!judgeNetWork}}">
+  <template is="penonyNoNetWork" />
+</view>

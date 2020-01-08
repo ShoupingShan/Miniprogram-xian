@@ -1,0 +1,308 @@
+@import "../peonyNoNetwork/peonyNoNetwork.wxss";
+
+page {
+  height: 100%;
+}
+
+/* 首页盒子容器 */
+
+.peonyHomePageContainer {
+  width: 100%;
+  height: 100%;
+}
+
+/* 相机拍摄 */
+
+.peonyHomePage-flower {
+  width: 100%;
+  height: 577rpx;
+}
+
+.peonyHomePage-flower_item {
+  height: 300rpx;
+  width: 364rpx;
+  margin: 0 auto;
+  margin-top: 190rpx;
+  overflow: hidden;
+}
+
+.flower-image {
+  height: 300rpx;
+  width: 364rpx;
+}
+
+/* 相机拍摄功能图片 */
+
+.peonyHomePage-camera {
+  width: 268rpx;
+  height: 268rpx;
+  margin: 0 auto;
+  margin-top: 100rpx;
+  border-radius: 50%;
+  /* border: 1px solid red; */
+  display: flex;
+  opacity: 0.6;
+  background: #fff;
+  box-shadow: 5rpx 5rpx #ccc;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 相机图片大小 */
+
+.peonyHomePage-camera .camera-phone {
+  width: 90rpx;
+  height: 84rpx;
+}
+
+/* 相机内部文字大小 */
+
+.peonyHomePage-camera .camera-text {
+  font-size: 41rpx;
+  margin-top: 34rpx;
+  color:#000;
+  font-weight: 400;
+}
+
+/*从相册中选取图片文字 */
+
+.selectImage {
+  margin-top: 68rpx;
+  width: 100%;
+  text-align: center;
+  font-size: 31rpx;
+}
+
+.selectImage-back {
+  width: 15rpx;
+  vertical-align: middle;
+  margin-top: -3rpx;
+  height: 25rpx;
+  margin-left: 11rpx;
+}
+
+/* .loader {
+  width: 300rpx;
+  margin: 0 auto;
+  
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.dot {
+  width: 30rpx;
+  height: 30rpx;
+  background: #3ac;
+  border-radius: 100%;
+  display: inline-block;
+  animation: slide 1s infinite;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0.1s;
+  background: #32aacc;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+  background: #64aacc;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.3s;
+  background: #96aacc;
+}
+
+.dot:nth-child(4) {
+  animation-delay: 0.4s;
+  background: #c8aacc;
+}
+
+.dot:nth-child(5) {
+  animation-delay: 0.5s;
+  background: #faaacc;
+} */
+
+/* 
+@keyframes slide {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.3;
+    transform: scale(2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+} */
+
+/* 动画 */
+
+#loading-center-absolute {
+  height: 150rpx;
+  width: 150rpx;
+  overflow: hidden;
+  margin: 0 auto;
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.selectImgText {
+  margin-top: 85rpx;
+  font-size: 31rpx;
+  text-align: center;
+}
+
+.object {
+  width: 20rpx;
+  height: 20rpx;
+  background-color: #f45652;
+  position: absolute;
+  left: 65rpx;
+  top: 65rpx;
+}
+
+.object:nth-child(2n+0) {
+  margin-right: 0px;
+}
+
+#object_one {
+  -webkit-animation: object_one 2s infinite;
+  animation: object_one 2s infinite;
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+#object_two {
+  -webkit-animation: object_two 2s infinite;
+  animation: object_two 2s infinite;
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+
+#object_three {
+  -webkit-animation: object_three 2s infinite;
+  animation: object_three 2s infinite;
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+#object_four {
+  -webkit-animation: object_four 2s infinite;
+  animation: object_four 2s infinite;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+
+#object_five {
+  -webkit-animation: object_five 2s infinite;
+  animation: object_five 2s infinite;
+  -webkit-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+
+#object_six {
+  -webkit-animation: object_six 2s infinite;
+  animation: object_six 2s infinite;
+  -webkit-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+}
+
+#object_seven {
+  -webkit-animation: object_seven 2s infinite;
+  animation: object_seven 2s infinite;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+
+#object_eight {
+  -webkit-animation: object_eight 2s infinite;
+  animation: object_eight 2s infinite;
+  -webkit-animation-delay: 0.9s;
+  animation-delay: 0.9s;
+}
+
+#object_big {
+  position: absolute;
+  width: 50rpx;
+  height: 50rpx;
+  left: 50rpx;
+  top: 50rpx;
+  -webkit-animation: object_big 2s infinite;
+  animation: object_big 2s infinite;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+
+@-webkit-keyframes object_big {
+  50% {
+    -webkit-transform: scale(0.5);
+  }
+}
+
+@keyframes object_big {
+  50% {
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+  }
+}
+
+@keyframes object_one {
+  50% {
+    transform: translate(-65rpx, -65rpx);
+    -webkit-transform: translate(-65px, -65px);
+  }
+}
+
+@keyframes object_two {
+  50% {
+    transform: translate(0, -65rpx);
+    -webkit-transform: translate(0, -65rpx);
+  }
+}
+
+@keyframes object_three {
+  50% {
+    transform: translate(65rpx, -65rpx);
+    -webkit-transform: translate(65rpx, -65rpx);
+  }
+}
+
+@keyframes object_four {
+  50% {
+    transform: translate(65rpx, 0);
+    -webkit-transform: translate(65rpx, 0);
+  }
+}
+
+@keyframes object_five {
+  50% {
+    transform: translate(65rpx, 65rpx);
+    -webkit-transform: translate(65rpx, 65rpx);
+  }
+}
+
+@keyframes object_six {
+  50% {
+    transform: translate(0, 65rpx);
+    -webkit-transform: translate(0, 65rpx);
+  }
+}
+
+@keyframes object_seven {
+  50% {
+    transform: translate(-65rpx, 65rpx);
+    -webkit-transform: translate(-65px, 65px);
+  }
+}
+
+@keyframes object_eight {
+  50% {
+    transform: translate(-65rpx, 0);
+    -webkit-transform: translate(-65rpx, 0);
+  }
+}

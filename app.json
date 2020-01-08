@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/peonyHomePage/peonyHomePage",
+    "pages/peonySearch/peonySearch",
+    "pages/myPeony/myPeony",
+    "pages/peonyNoNetwork/peonyNoNetwork",
+    "pages/text/text",
+    "pages/animation/animation",
+    "pages/photoRec/photoRec",
+    "pages/peonyDetails/peonyDetails",
+    "pages/peonyInfo/peonyInfo",
+    "pages/peonyResult/peonyResult",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "最西安",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "backgroundColor": "#80cfbc",
+    "color": "#909399",
+    "selectedColor": "#970456",
+    "list": [
+      {
+        "pagePath": "pages/peonyHomePage/peonyHomePage",
+        "text": "首页",
+        "iconPath": "images/huadianshijian_1.png",
+        "selectedIconPath": "images/huadianshijian_2.png"
+      },
+      {
+        "pagePath": "pages/peonySearch/peonySearch",
+        "text": "图鉴",
+        "iconPath": "images/hua_1.png",
+        "selectedIconPath": "images/hua_2.png"
+      },
+      {
+        "pagePath": "pages/myPeony/myPeony",
+        "text": "我的",
+        "iconPath": "images/wodedangxuan_1.png",
+        "selectedIconPath": "images/wodedangxuan_2.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取你的位置信息"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}
