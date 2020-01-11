@@ -9,7 +9,8 @@ page {
   height: 100%;
   /* overflow: hidden; */
   padding-top: 37rpx;
-  background:#80cfbc;
+  /* background:#80cfbc; */
+  background: #f2f2f2;
 }
 
 /* 搜索框盒子 */

@@ -1,6 +1,6 @@
 /* pages/animation/animation.wxss */
 #loading{
-    background-color: #db9e36;
+    background-color: #d4237a;
     height: 100%;
     width: 100%;
     position: fixed;

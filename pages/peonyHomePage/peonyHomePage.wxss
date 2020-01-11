@@ -9,26 +9,30 @@ page {
 .peonyHomePageContainer {
   width: 100%;
   height: 100%;
+  background: #80cfbc;
+  /*background:url(data:image/png;base64,)no-repeat;*/
+  opacity: 0.;
+  
 }
 
 /* 相机拍摄 */
 
 .peonyHomePage-flower {
   width: 100%;
-  height: 577rpx;
+  height: 640rpx;
 }
 
 .peonyHomePage-flower_item {
-  height: 300rpx;
-  width: 364rpx;
+  height: 650rpx;
+  width: 665rpx;
   margin: 0 auto;
-  margin-top: 190rpx;
+  margin-top: 140rpx;
   overflow: hidden;
 }
 
 .flower-image {
-  height: 300rpx;
-  width: 364rpx;
+  height: 500rpx;
+  width: 665rpx;
 }
 
 /* 相机拍摄功能图片 */
@@ -41,7 +45,7 @@ page {
   border-radius: 50%;
   /* border: 1px solid red; */
   display: flex;
-  opacity: 0.6;
+  opacity: 0.;
   background: #fff;
   box-shadow: 5rpx 5rpx #ccc;
   flex-direction: column;
@@ -160,7 +164,7 @@ page {
 .object {
   width: 20rpx;
   height: 20rpx;
-  background-color: #f45652;
+  background-color: #d4237a;
   position: absolute;
   left: 65rpx;
   top: 65rpx;

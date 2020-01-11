@@ -71,6 +71,19 @@ page {
   font-size: 29rpx;
   color: #000;
 }
+/*刷新*/
+.show-refresh{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.referash-icon{
+  height: 50rpx;
+  width: 50rpx;
+  margin-top: 5rpx;
+  margin-right: 15rpx;
+  /* background: rgb(218, 21, 21); */
+}
 
 /* 识别纪录展示信息 */
 

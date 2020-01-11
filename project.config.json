@@ -9,17 +9,32 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
+		"coverView": true,
 		"nodeModules": false,
-		"autoAudits": false
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.6.5",
 	"appid": "wx354f3ea97f51edd3",
-	"projectname": "WxPeony",
+	"projectname": "WX-xian",
+	"cloudfunctionTemplateRoot": "",
+	"watchOptions": {
+		"ignore": []
+	},
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
-	"isGameTourist": false,
+	"scripts": {},
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
@@ -31,8 +46,15 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
-			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
 			"list": []
 		},
 		"miniprogram": {

@@ -9,6 +9,10 @@
     <image src="../../images/xiangji.png" class='camera-phone'></image>
     <text class='camera-text'>选择图片</text>
   </view>
+  
+
+<!-- <open-data type="userAvatarUrl"></open-data>
+<open-data type="userNickName"></open-data> -->
   <!-- <view class='selectImage' wx:if="{{isShow}}" >
     <text >从相册中选图</text>
     <image src='../../images/phone-back.png' class='selectImage-back' mode='cover'></image>
@@ -27,7 +31,7 @@
   </view>
   <!-- 上传信息 -->
   <view class='selectImgText' wx:if="{{!isShow}}">
-    <text style='color:#f45652;'>拼命加载中<text  class="dotting"></text></text>
+    <text style='color:#d4237a;'>拼命加载中<text  class="dotting"></text></text>
   </view>
 </view>
 <!-- 有无网络判断 -->

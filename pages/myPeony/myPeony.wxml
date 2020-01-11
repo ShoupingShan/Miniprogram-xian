@@ -12,7 +12,15 @@
       <text>{{identificationRecordNum}}条记录</text>
     </view>
   </view>
-  <view class='distinguish-text' >识别纪录</view>
+  <view class='show-refresh'>
+  <!-- <text>识别纪录</text> -->
+    <view class='distinguish-text' >识别纪录</view>
+    <view class='referash-icon' bindtap='referash'>
+    <image src="../../images/refresh.png" class='referash-icon'></image>
+    <!-- <button type="default"  bindtap="referash"
+      hover-class="other-button-hover" class="margin-button"> 刷新 </button> -->
+    </view>
+  </view>
   <!-- 识别纪录 -->
   <view class='recordInformation'>
     <scroll-view scroll-y="{{true}}" style='height:{{scrollHeight}}px' class='scroll-view' bindscroll="bindscroll" bindscrolltolower="bindDownLoad" bindscrolltoupper="topLoad">

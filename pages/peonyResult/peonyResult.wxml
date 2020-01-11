@@ -10,7 +10,7 @@
       </view>
       <view class='imageBox-item_tempImg'>
         <image src='{{coverResultImg}}' mode='cover' bindtap='clickCover'></image>
-        <text class='item-tempImg_text'>模板图片</text>
+        <text class='item-tempImg_text'>类激活图</text>
       </view>
     </view>
     <view class='peonyInfo-locationAndDate'>
@@ -26,15 +26,22 @@
       </view>
     </view>
   </view>
-  <!-- 牡丹花名称 -->
-  <view class='peonyInfo-names'>
-    <text>牡丹</text>
-    <text class='peonyInfo-names_text'>{{peonyResultname}}</text>
+  <!--查询名称 -->
+  <view class='peonyLabel-Prob'>
+    <!-- 获取Top1类标 -->
+    <view class='peonyInfo-names'>
+      <text>预测结果</text>
+      <text class='peonyInfo-names_text'>{{peonyResultname}}</text>
+    </view>
+    <view class='peonyInfo-names'>
+      <text>置信度</text>
+      <text class='peonyInfo-names_text'>{{peonyResultScore}}</text>
+    </view>
   </view>
   <view class='intro-text'>
     <text>简介</text>
   </view>
-  <!-- 显示牡丹花详细信息 -->
+  <!-- 显示查询详细信息 -->
   <view class='content' style='height:{{scrollHeight}}px'>
     <view class='content-template'>
       <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>

@@ -12,16 +12,16 @@ Page({
     searchResult: [],//存储搜索框查询到的数据
     isJudge: true,
     pageIndex: 0,
-    pageSize: 10,
+    pageSize: 6,
     hasMore: true,
-    searchVal: '' //搜搜框内容
+    searchVal: '' //搜索框内容
   },
-  // 1.3 牡丹花查询数据
+  // 1.3 关键字查询数据
   loadMore: function() {
     var that = this;
     if (!this.data.hasMore) return;
     wx.request({
-      url: app.globalData.url + 'template/queryAllTemplates',
+      url: app.globalData.url + '/query_all_result',
       data: {
         pageNum: ++that.data.pageIndex,//每执行一次下拉获取更多操作就会让页数+1
         pageSize: that.data.pageSize
@@ -34,7 +34,10 @@ Page({
           //格式化时间
           res.data.data.list.map((el, index) => {
             el.createTime = utils.getTime(el.createTime);
+            console.log(el.content)
             el.text = this.matchReg(el.content);
+            console.log(el.text)
+
           })
           //还要设置是否获取到所有数据
           var newList = this.data.searchList.concat(res.data.data.list);
@@ -68,9 +71,10 @@ Page({
   searchBtn: function() {
     var that = this;
     wx.request({
-      url: app.globalData.url + 'template/searchTemplate',
+      url: app.globalData.url + '/search',
       data: {
-        name: that.data.searchVal
+        name: that.data.searchVal,
+        userId: app.globalData.userInfo.nickName
       },
       success: function(res) {
         // console.log(res);
@@ -78,6 +82,7 @@ Page({
           //格式化时间
           res.data.data.map((el, index) => {
             el.createTime = utils.getTime(el.createTime);
+            console.log(el.createTime);
           })
           //还要设置是否获取到所有数据
           that.setData({
@@ -123,7 +128,7 @@ Page({
   inputVal(e) {},
   //利用正则截取字符串
   matchReg: function matchReg(str) {
-    let reg = /<\/?.+?\/?>/g;
+    let reg = /<\/?.+?\/?>/g; //把所有的
     var a = str.replace(reg, '')
     return a.replace(/&nbsp;/ig, "");
   },

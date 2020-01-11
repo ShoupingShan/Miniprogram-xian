@@ -6,12 +6,12 @@
     <image src='{{peonyDetailsImg}}' mode='widthFix' bindtap='echoDisplay'></image>
   </view>
   <view class='Details-name'>
-    <text class='Details-text'>牡丹</text>
+    <text class='Details-text'>{{peonyDetailscate}}</text>
     <text class='Details-typeName'>{{peonyDetailsname}}</text>
   </view>
-  <view class='Details-intro'>
+  <!-- <view class='Details-intro'>
     <text>简介</text>
-  </view>
+  </view> -->
   <view class='Details-content' style='height:{{scrollHeight}}px;'>
     <view class='content-template'>
       <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>

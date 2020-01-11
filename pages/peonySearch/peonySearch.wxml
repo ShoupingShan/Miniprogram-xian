@@ -7,7 +7,7 @@
     <image src='../../images/search-icon.png' class='searchIcon'></image>
     <text class='cancelSearch' bindtap='cancelSearch'>取消</text>
   </view>
-  <!-- 牡丹花品种介绍 -->
+  <!-- 搜索结果 -->
   <view class='peonySearch-image' wx:if="{{isJudge}}">
     <view class="peonySearch-image_item" wx:for="{{searchList}}" wx:key="item">
       <view class='image-item' data-template="{{item.id}}" bindtap='detailsPeony'>

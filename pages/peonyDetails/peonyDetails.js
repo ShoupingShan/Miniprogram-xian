@@ -12,6 +12,7 @@ Page({
     scrollHeight: '', //富文本编辑器高度
     peonyDetailsImg: '',
     peonyDetailsname: '',
+    peonyDetailscate: '',
     detailsShow: true, //控制页面显示
     detailsId:-1
   },
@@ -86,7 +87,7 @@ Page({
   requestDetails(){
     var that = this;
     wx.request({
-      url: app.globalData.url + 'template/queryTemplate',
+      url: app.globalData.url + '/query_by_category',
       data: {
         templateId: parseInt(that.data.detailsId)
       },
@@ -95,7 +96,8 @@ Page({
         if (res.data.code == "1000") {
           that.setData({
             peonyDetailsImg: res.data.data.coverImageUrl,
-            peonyDetailsname: res.data.data.name
+            peonyDetailsname: res.data.data.name,
+            peonyDetailscate: res.data.data.cate
           })
           var temp = WxParse.wxParse('article', 'html', res.data.data.content, that)
         }

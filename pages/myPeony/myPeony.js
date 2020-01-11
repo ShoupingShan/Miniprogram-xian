@@ -32,12 +32,12 @@ Page({
     var that = this;
     if (!this.data.hasMore) return;
     wx.request({
-      url: app.globalData.url + 'record/queryAll',
+      url: app.globalData.url + '/record_user',
       header: {
         "content-type": "application/x-www-form-urlencoded"
       },
       data: {
-        userId: '111',
+        userId: app.globalData.userInfo.nickName,
         pageNum: ++that.data.pageIndex,
         pageSize: that.data.pageSize
       },
@@ -75,7 +75,8 @@ Page({
   //跳转页面
   selHistorical(e) {
     var item = e.currentTarget.dataset.item;
-    //console.log(item);
+    console.log('jump to', item);
+    console.log('debug', e.currentTarget);
     wx.navigateTo({
       url: '../peonyInfo/peonyInfo?item=' + item
     })
@@ -207,8 +208,24 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {},
-
+  // onPullDownRefresh: function() {
+  //   console.log('下拉刷新')
+  // },
+  referash:function(){
+    this.setData({
+      pageIndex : 0,
+      identificationRecordNum: 0,
+      peonyList: [],
+      hasMore: true,
+    });
+    this.loadMore();
+    console.log('刷新ing')
+    // wx.stopPullDownRefresh();
+  },
+  onPullDownRefresh: function () {
+    
+  },
+  
   /**
    * 页面上拉触底事件的处理函数
    */

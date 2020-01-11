@@ -72,7 +72,7 @@
 
 .item-tempImg_text {
   font-size: 25rpx;
-  color: #fb9ead;
+  color: #d4237a;
   font-weight: 400;
 }
 
@@ -80,7 +80,7 @@
 
 .item-uploadImg_text {
   font-size: 25rpx;
-  color: #000;
+  color: #d4237a;
   font-weight: 400;
 }
 
@@ -125,6 +125,102 @@ margin-right: 15rpx;
 .peonyInfo-date_text{
 color: #666666;
 }
+/*新增*/
+/* .softmax{
+  width: 668rpx;
+  height: 578rpx;
+  left: 50%;
+  top: 70rpx;
+  overflow-y: scroll;
+  overflow-x: hidden;
+} */
+.table{
+  border:1px solid #dadada;
+  border-right:0;
+  border-bottom: 0;
+  width: 98%;
+  margin-left: 1%;
+}
+.tr{
+  width:100%;
+  display: flex;
+  justify-content: space-between;
+}
+.th,.td{
+  padding: 10px;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  text-align: center;
+  width: 100%;
+}
+
+.th1,.th3,.td1,.td3{
+  width: 50%;
+}
+.th{
+  font-weight: 800;
+  background-color: #ffffff;
+  font-size: 28rpx;
+  color: #330e0e;
+}
+.td{
+  font-size: 30rpx;
+  color: #d4237a;
+}
+
+/* .package-softmax {
+  width: 710rpx;
+  height: 76rpx;
+  border-bottom: 1px solid #e8e8e8;
+  box-sizing: border-box;
+  padding-top: 21rpx;
+  flex-direction: row;
+  justify-content: center;
+  display: flex;
+} */
+/* .package-matrix {
+  width: 710rpx;
+  height: 176rpx;
+  border-bottom: 1px solid #e8e8e8;
+  box-sizing: border-box;
+  padding-top: 21rpx;
+  flex-direction: row;
+  justify-content: center;
+  display: flex;
+} */
+.matrix {
+  width: 709rpx;
+  margin: 0 auto;
+  /* height: 100%; */
+  box-sizing: border-box;
+  /* overflow: auto; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 15rpx;
+  padding-bottom: 15rpx;
+}
+/* .package-softmax{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+} */
+.package-matrix-view{
+  height: 230rpx;
+  overflow: hidden;
+}
+
+.package-matrix-view image {
+  width: 220rpx;
+  height: 220rpx;
+  margin-left: 10rpx;
+}
+
+/* .package-matrix-image{
+  width: 135rpx;
+  height: 135rpx;
+  overflow: hidden;
+} */
 
 /*牡丹花种类 */
 
@@ -150,7 +246,7 @@ color: #666666;
   box-sizing: border-box;
   font-size: 31rpx;
   color: #333;
-  height: 35rpx;
+  height: 45rpx;
   overflow: hidden;
   padding-left: 21rpx;
   margin-top: 21rpx;

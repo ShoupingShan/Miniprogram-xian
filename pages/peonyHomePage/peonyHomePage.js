@@ -52,10 +52,11 @@ Page({
                 judgeNetWork: true
               })
               //上传服务器地址进行识别   
-              //console.log(app.globalData.peonyLocation)
+              console.log(app.globalData.peonyLocation)
+              console.log(app.globalData.url)
               timeId = setTimeout(function() {
                 requestTask = wx.uploadFile({
-                  url: app.globalData.url + 'record/addRecord',
+                  url: app.globalData.url + '/classification',
                   filePath: tempFilePath,
                   header: {
                     "Content-Type": "multipart/form-data",
@@ -64,14 +65,16 @@ Page({
                   formData: {
                     "Content-Type": "multipart/form-data",
                     userId: '111',
-                    userName: '4165',
+                    userName: app.globalData.userInfo.nickName,
                     image: tempFilePath,
                     location: (app.globalData.peonyLocation ? app.globalData.peonyLocation:'')
                   },
                   success: function(res) {
-                    console.log(res);
+                    console.log('I am alive1')
+                    console.log(JSON.parse(res.data));
                     if (JSON.parse(res.data).code == "1000") {
                       app.globalData.peonyResultInfo = res.data;
+                      /*console.log(app.globalData.peonyResultInfo);*/
                       //初始化数据页面跳转时
                       wx.navigateTo({
                         url: '../peonyResult/peonyResult'
@@ -94,6 +97,7 @@ Page({
                     }
                   },
                   fail: function(err) {
+                    console.log('I am dead')
                     wx.showToast({
                       title: '服务器繁忙',
                       image: '../../images/shiban.png',
@@ -119,7 +123,7 @@ Page({
                 })
                 clearTimeout(timeId);
                 clearTimeout(uploadId);
-              }, 10000);
+              }, 20000);
             }
           },
         })
@@ -191,15 +195,27 @@ Page({
         //console.log(res);
       },
     })
+    // console.log(that.data)
     if (app.globalData.userInfo) {
       that.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
     } else if (that.data.canIUse) {
+      wx.getUserInfo({
+        success: res => {
+          console.log(res);
+          app.globalData.userInfo = res.userInfo
+          that.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+        }
+      })
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
+        console.log('已经获取权限了？？？')
         that.setData({
           userInfo: res.userInfo,
           hasUserInfo: true

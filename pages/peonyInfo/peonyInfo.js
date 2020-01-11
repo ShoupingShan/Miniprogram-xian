@@ -10,8 +10,8 @@ Page({
     judgeNetWork: true, //判断有误网络
     height: '', // 可视化屏幕高度
     scrollHeight: '', //富文本编辑容器的高度
-    peonyname: '',
-    location:'北京市香山公园',// 拍照地址
+    peonyname: '', //查询结果
+    location:'未记录地址',// 拍照地址
     coverImg: '', //模板图片
     uploadImg: '', // 用户上传的图片
     peonyTimes: '',
@@ -81,19 +81,23 @@ Page({
   requestData(){
     var that = this;
     wx.request({
-      url: app.globalData.url + 'record/queryDetail',
+      url: app.globalData.url + '/queryDetail',
       data: {
-        id: parseInt(that.data.itemid)
+        id: parseInt(that.data.itemid),
+        userName: app.globalData.userInfo.nickName
       },
       success: function (res) {
-        //console.log(res);
+        console.log(res);
         if (res.data.code == '1000') {
           that.setData({
-            peonyname: res.data.data.name,
-            coverImg: res.data.data.cover,
-            uploadImg: res.data.data.shotImage,
-            peonyTimes: utils.getTime(res.data.data.createTime),
-            location: (res.data.data.location ? res.data.data.location:'暂无地址')
+            peonyname: res.data.data.pred_result, //查询的结果名称
+            coverImg: res.data.data.cam, //查询图片的的cam图
+            uploadImg: res.data.data.shotImage, //上传图片的缩略图
+            peonyTimes: utils.getTime(res.data.data.createTime), //查询时间
+            location: (res.data.data.location ? res.data.data.location:'暂无地址'), //查询的位置
+            softmax: res.data.data.softmax_prob,
+            matrix: res.data.data.match_images,
+            cosine: res.data.data.match_times
           })
           var temp = WxParse.wxParse('article', 'html', res.data.data.content, that)
         }
@@ -112,7 +116,7 @@ Page({
       }
     })
   },
-  // 点击长传的图片
+  // 点击上传的图片
   clickUpload() {
     var currentImg = this.data.uploadImg;
     var arr = [];
@@ -126,6 +130,18 @@ Page({
   // 点击封面图片
   clickCover() {
     var currentImg = this.data.coverImg;
+    var arr = [];
+    arr.push(currentImg);
+    arr.push(this.data.uploadImg);
+    wx.previewImage({
+      urls: arr,
+      current: currentImg
+    })
+  },
+  // 点击图片
+  detailsShow(e) {
+    var detailsId = e.currentTarget.dataset.template;
+    var currentImg = this.data.matrix[detailsId].similar;
     var arr = [];
     arr.push(currentImg);
     arr.push(this.data.uploadImg);

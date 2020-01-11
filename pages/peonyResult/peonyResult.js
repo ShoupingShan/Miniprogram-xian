@@ -48,14 +48,16 @@ Page({
     //     })
     //   },
     // })
-    var infoAll = JSON.parse(app.globalData.peonyResultInfo).data;
-    console.log(infoAll);
+    var infoAll = JSON.parse(app.globalData.peonyResultInfo);
+    console.log(infoAll.cam)
+    console.log(app.globalData.uploadImg);
     that.setData({
-      peonyResultname: infoAll.name ? infoAll.name:"暂无数据",
-      coverResultImg: infoAll.cover,
-      uploadResultImg: infoAll.shotImage,
+      peonyResultname: infoAll.state ? infoAll.predictions[0].label:"暂无数据",
+      peonyResultScore: infoAll.state ? infoAll.predictions[0].probability : "暂无数据",
+      coverResultImg: infoAll.cam,
+      uploadResultImg: app.globalData.uploadImg,
       peonyResultTimes: infoAll.createTime ? utils.getTime(infoAll.createTime) : utils.getTime(new Date),
-      peonyLocation: infoAll.location ? infoAll.location:"暂无数据"
+      peonyLocation: app.globalData.peonyLocation ? app.globalData.peonyLocation:"暂无数据"
     });
     var temp = WxParse.wxParse('article', 'html', infoAll.content, that)
   },

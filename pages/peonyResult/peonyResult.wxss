@@ -9,6 +9,8 @@ page {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background: #fff;
+  
 }
 
 /* 图片盒子 */
@@ -39,6 +41,7 @@ page {
 .imageBox-item_uploadImg {
   width: 365rpx;
   height: 365rpx;
+  padding-top: 5rpx;
   position: relative;
   overflow: hidden;
   border-radius: 10rpx;
@@ -49,6 +52,7 @@ page {
 .imageBox-item_tempImg {
   width: 365rpx;
   height: 365rpx;
+  padding-top: 5rpx;
   border-radius: 10rpx;
   /* margin-left: 18rpx; */
   position: relative;
@@ -74,7 +78,7 @@ page {
 
 .item-tempImg_text {
   font-size: 25rpx;
-  color: #fb9ead;
+  color: #d4237a;
   font-weight: 400;
 }
 
@@ -82,13 +86,22 @@ page {
 
 .item-uploadImg_text {
   font-size: 25rpx;
-  color: #000;
+  color: #d4237a;
   font-weight: 400;
 }
 
 .peonyInfo-locationAndDate {
   width: 100%;
   height: 52rpx;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  font-size: 25rpx;
+}
+
+.peonyLabel-Prob {
+  width: 100%;
+  height: 82rpx;
   overflow: hidden;
   display: flex;
   flex-direction: row;
@@ -135,7 +148,7 @@ color: #666666;
   padding-left: 21rpx;
   box-sizing: border-box;
   overflow: hidden;
-  font-size: 38rpx;
+  font-size: 28rpx;
   line-height: 88rpx;
   height: 88rpx;
   color: #000;
@@ -153,8 +166,8 @@ color: #666666;
   font-size: 31rpx;
   color: #333;
   padding-left: 21rpx;
-  margin-top: 21rpx;
-  height: 35rpx;
+  margin-top: 16rpx;
+  height: 45rpx;
   overflow: hidden;
 }
 /* 富文本编辑器设置 */
