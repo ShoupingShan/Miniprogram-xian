@@ -1,0 +1,32 @@
+<view class="flex-style">
+  <view class="flex-item" bindtouchstart="goToCar">
+    <view class='ima-block'>
+      <image src="../../../images/car.png" class='car' mode='cover'></image>
+    </view>
+  </view>
+  <view class="flex-item" bindtouchstart="goToWalk">
+  <view class='ima-block'>
+      <image src="../../../images/walk2.png" class='car' mode='cover'></image>
+    </view>
+  </view>
+  <view class="flex-item active" bindtouchstart="goToBus">
+  <view class='ima-block'>
+      <image src="../../../images/bus.png" class='car' mode='cover'></image>
+    </view>
+  </view>
+  <view class="flex-item" bindtouchstart="goToRide">
+  <view class='ima-block'>
+      <image src="../../../images/bike.png" class='car' mode='cover'></image>
+    </view>
+  </view>
+</view>
+
+<view class="map_box">
+  <map id="navi_map" longitude="{{currentLon}}" latitude="{{currentLat}}"  scale="12" markers="{{markers}}" polyline="{{polyline}}"></map>
+</view>
+
+<view class="text_box">
+  <view class="text">{{distance}}</view>
+  <view class="text">{{cost}}</view>
+  <view class="detail_button" bindtouchstart="goDetail">详情</view>
+</view>

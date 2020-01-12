@@ -8,6 +8,9 @@
   <view class='Details-name'>
     <text class='Details-text'>{{peonyDetailscate}}</text>
     <text class='Details-typeName'>{{peonyDetailsname}}</text>
+    <view class='neighbor1' data-template="{{peonyname}}" bindtap='searchNeighbor'>
+      <image src="../../images/neighbor.png" class='neighbor'></image>
+    </view>
   </view>
   <!-- <view class='Details-intro'>
     <text>简介</text>

@@ -37,6 +37,9 @@
       <text>置信度</text>
       <text class='peonyInfo-names_text'>{{peonyResultScore}}</text>
     </view>
+    <view class='neighbor1' data-template="{{peonyname}}" bindtap='searchNeighbor'>
+      <image src="../../images/neighbor.png" class='neighbor'></image>
+    </view>
   </view>
   <view class='intro-text'>
     <text>简介</text>

@@ -24,10 +24,16 @@
       </view>
     </view>
   </view>
-  <!-- 牡丹花名称 -->
+  <!--名称 -->
   <view class='peonyInfo-names'>
     <text>查询结果</text>
     <text class='peonyInfo-names_text'>{{peonyname}}</text>
+    <!-- <view class='test'> -->
+    <view class='neighbor1' data-template="{{peonyname}}" bindtap='searchNeighbor'>
+      <image src="../../images/neighbor.png" class='neighbor'></image>
+      <!-- <text> 周边 </text> -->
+    </view>
+    <!-- </view> -->
   </view>
 
   <view class='content' style='height:{{scrollHeight}}px'>

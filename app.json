@@ -11,6 +11,15 @@
     "pages/peonyDetails/peonyDetails",
     "pages/peonyInfo/peonyInfo",
     "pages/peonyResult/peonyResult",
+    "pages/poi/poi",
+    "pages/inputtips/input",
+    "pages/goto/navigation_bus/navigation",
+    "pages/goto/navigation_car/navigation",
+    "pages/goto/navigation_car_detail/navigation",
+    "pages/goto/navigation_ride/navigation",
+    "pages/goto/navigation_ride_detail/navigation",
+    "pages/goto/navigation_walk/navigation",
+    "pages/goto/navigation_walk_detail/navigation",
     "pages/logs/logs"
   ],
   "window": {

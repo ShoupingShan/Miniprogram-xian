@@ -54,6 +54,9 @@ App({
     url: 'http://127.0.0.1:5000',//服务器地址
     peonyResultInfo: {},//从服务器获取的牡丹花信息
     uploadImg:'',
-    peonyLocation:'' //存储用户地理位置信息
+    peonyLocation:'', //存储用户地理位置信息
+    desciption:"", //用户地理信息简短描述
+    latitude:'', //用户所在经纬度
+    longitude:'',
   }
 })

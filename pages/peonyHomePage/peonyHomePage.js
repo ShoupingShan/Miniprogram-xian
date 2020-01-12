@@ -1,7 +1,8 @@
 // pages/peonyIndex/peonyIndex.js
 //获取应用实例
 const app = getApp();
-var qqmap = require('../../utils/qqmap-wx-jssdk.min.js')
+var amapFile = require('../../libs/amap-wx.js');
+// var qqmap = require('../../utils/qqmap-wx-jssdk.min.js')
 
 
 Page({
@@ -157,9 +158,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var demo = new qqmap({
-      key: 'XM4BZ-KM3CP-WAPDP-V5BPU-7B4PZ-CUB6Z',
-    });
+    // var demo = new qqmap({
+    //   key: 'XM4BZ-KM3CP-WAPDP-V5BPU-7B4PZ-CUB6Z',
+    // });
     var that = this;
     // 判断有无网络状态
     wx.getNetworkType({
@@ -176,25 +177,39 @@ Page({
       },
     })
     // 获取用户地址信息
-    wx.getLocation({
-      type: 'wgs84',
-      success: function(res) {
-        var latitude = res.latitude; //获取经度
-        var longitude = res.longitude; //获取维度
-        demo.reverseGeocoder({
-          location: {
-            latitude: latitude,
-            longitude: longitude
-          },
-          success:function(res){
-           // console.log(res);
-            app.globalData.peonyLocation = res.result.address_component.city + res.result.address_component.district + res.result.address_component.street;
-            //console.log(app.globalData.peonyLocation);
-          }
-        })
-        //console.log(res);
+    // wx.getLocation({
+    //   type: 'wgs84',
+    //   success: function(res) {
+    //     var latitude = res.latitude; //获取经度
+    //     var longitude = res.longitude; //获取维度
+    //     demo.reverseGeocoder({
+    //       location: {
+    //         latitude: latitude,
+    //         longitude: longitude
+    //       },
+    //       success:function(res){
+    //        // console.log(res);
+    //         app.globalData.peonyLocation = res.result.address_component.city + res.result.address_component.district + res.result.address_component.street;
+    //         //console.log(app.globalData.peonyLocation);
+    //       }
+    //     })
+    //     //console.log(res);
+    //   },
+    // })
+    var myAmapFun = new amapFile.AMapWX({ key: 'ac7e6cc898cc92807d794cfeee0d2335' });
+    myAmapFun.getRegeo({
+      success: function (data) {
+        console.log(data)
+        app.globalData.peonyLocation = data[0].name
+        app.globalData.desciption = data[0].desc
+        app.globalData.latitude = data[0].latitude
+        app.globalData.longitude = data[0].longitude
       },
+      fail: function (info) {
+        // wx.showModal({title:info.errMsg})
+      }
     })
+
     // console.log(that.data)
     if (app.globalData.userInfo) {
       that.setData({
@@ -215,7 +230,6 @@ Page({
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
-        console.log('已经获取权限了？？？')
         that.setData({
           userInfo: res.userInfo,
           hasUserInfo: true

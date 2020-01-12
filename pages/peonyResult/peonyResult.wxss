@@ -141,10 +141,9 @@ margin-right: 15rpx;
 color: #666666;
 }
 
-/*牡丹花种类 */
 
 .peonyInfo-names {
-  width: 100%;
+  width: 60%;
   padding-left: 21rpx;
   box-sizing: border-box;
   overflow: hidden;
@@ -155,7 +154,14 @@ color: #666666;
   border-bottom: 1px solid #ccc;
 }
 
-/* 牡丹花类别 */
+.neighbor1{
+  margin-left: 15rpx;
+}
+.neighbor{
+  padding-left: 20rpx;
+  height: 55rpx;
+  width: 55rpx;
+}
 
 .peonyInfo-names_text {
   margin-left: 15rpx;

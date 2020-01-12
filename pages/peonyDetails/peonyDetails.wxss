@@ -43,7 +43,14 @@ page {
   font-size: 31rpx;
 }
 
-
+.neighbor1{
+  margin-left: 15rpx;
+}
+.neighbor{
+  padding-left: 20rpx;
+  height: 55rpx;
+  width: 55rpx;
+}
 /* 富文本编辑器 */
 .Details-content {
   overflow: auto;

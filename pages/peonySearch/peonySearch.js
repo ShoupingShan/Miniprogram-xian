@@ -34,9 +34,9 @@ Page({
           //格式化时间
           res.data.data.list.map((el, index) => {
             el.createTime = utils.getTime(el.createTime);
-            console.log(el.content)
+            // console.log(el.content)
             el.text = this.matchReg(el.content);
-            console.log(el.text)
+            // console.log(el.text)
 
           })
           //还要设置是否获取到所有数据

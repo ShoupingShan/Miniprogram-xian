@@ -1,0 +1,27 @@
+<view class="flex-style">
+  <view class="flex-item" bindtouchstart="goToCar">
+    <view class='ima-block'>
+      <image src="../../../images/car.png" class='car' mode='cover'></image>
+    </view>
+  </view>
+  <view class="flex-item" bindtouchstart="goToWalk">
+  <view class='ima-block'>
+      <image src="../../../images/walk.png" class='car' mode='cover'></image>
+    </view>
+  </view>
+  <view class="flex-item active" bindtouchstart="goToBus">
+  <view class='ima-block'>
+      <image src="../../../images/bus2.png" class='car' mode='cover'></image>
+    </view>
+  </view>
+  <view class="flex-item" bindtouchstart="goToRide">
+  <view class='ima-block'>
+      <image src="../../../images/bike.png" class='car' mode='cover'></image>
+    </view>
+  </view>
+</view>
+<view class="text_box" wx:for="{{transits}}" wx:for-item="i">
+  <text class="text_item" wx:for="{{i.transport}}" wx:for-item="j">
+    {{j}}
+  </text>
+</view>

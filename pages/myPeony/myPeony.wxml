@@ -16,9 +16,7 @@
   <!-- <text>识别纪录</text> -->
     <view class='distinguish-text' >识别纪录</view>
     <view class='referash-icon' bindtap='referash'>
-    <image src="../../images/refresh.png" class='referash-icon'></image>
-    <!-- <button type="default"  bindtap="referash"
-      hover-class="other-button-hover" class="margin-button"> 刷新 </button> -->
+      <image src="../../images/refresh.png" class='referash-icon'></image>
     </view>
   </view>
   <!-- 识别纪录 -->
