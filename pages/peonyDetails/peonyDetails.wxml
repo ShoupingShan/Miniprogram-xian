@@ -6,11 +6,22 @@
     <image src='{{peonyDetailsImg}}' mode='widthFix' bindtap='echoDisplay'></image>
   </view>
   <view class='Details-name'>
-    <text class='Details-text'>{{peonyDetailscate}}</text>
+    <!-- 获取Top1类标 -->
+    <view class='Details-cate'>
+      <text class='Details-text'>{{peonyDetailscate}}</text>
+    </view>
+    <view class='Details-cate'>
+      <text class='Details-typeName'>{{peonyDetailsname}}</text>
+    </view>
+    <view class='neighbor1' data-template="{{peonyDetailscate + '/' + peonyDetailsname}}" bindtap='searchNeighbor'>
+      <image src="../../images/neighbor.png" class='neighbor'></image>
+    </view>
+
+    <!-- <text class='Details-text'>{{peonyDetailscate}}</text>
     <text class='Details-typeName'>{{peonyDetailsname}}</text>
     <view class='neighbor1' data-template="{{peonyname}}" bindtap='searchNeighbor'>
       <image src="../../images/neighbor.png" class='neighbor'></image>
-    </view>
+    </view> -->
   </view>
   <!-- <view class='Details-intro'>
     <text>简介</text>

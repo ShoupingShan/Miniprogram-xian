@@ -124,7 +124,7 @@ Page({
                 })
                 clearTimeout(timeId);
                 clearTimeout(uploadId);
-              }, 20000);
+              }, 30000);
             }
           },
         })
@@ -200,8 +200,8 @@ Page({
     myAmapFun.getRegeo({
       success: function (data) {
         console.log(data)
-        app.globalData.peonyLocation = data[0].name
-        app.globalData.desciption = data[0].desc
+        app.globalData.peonyLocation = data[0].desc
+        app.globalData.desciption = data[0].name
         app.globalData.latitude = data[0].latitude
         app.globalData.longitude = data[0].longitude
       },

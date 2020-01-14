@@ -141,10 +141,16 @@ margin-right: 15rpx;
 color: #666666;
 }
 
+.peonyLabel-Prob{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
 .peonyInfo-names {
-  width: 60%;
-  padding-left: 21rpx;
+  width: 50%;
+  padding-left: 25rpx;
   box-sizing: border-box;
   overflow: hidden;
   font-size: 28rpx;
@@ -155,12 +161,18 @@ color: #666666;
 }
 
 .neighbor1{
-  margin-left: 15rpx;
+  width: 10%;
+  line-height: 88rpx;
+  box-sizing: border-box;
+  height: 88rpx;
+  /* padding-left: 21rpx; */
+  overflow: hidden;
+  margin-right: 15rpx;
 }
 .neighbor{
-  padding-left: 20rpx;
-  height: 55rpx;
-  width: 55rpx;
+  margin-top: 20rpx;
+  height: 45rpx;
+  width: 45rpx;
 }
 
 .peonyInfo-names_text {

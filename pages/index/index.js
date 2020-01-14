@@ -57,7 +57,6 @@ Page({
         }, 100) //自动跳转延时设置
       }
     } else {
-      console.log('HHH1')
       // 在没有 open-type=getUserInfo 版本的兼容处理
       wx.getUserInfo({
         success: res => {
@@ -71,17 +70,12 @@ Page({
     }
   },
   getUserInfo: function (e) {
-    // console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-    // setTimeout(function () {
-    //   wx.reLaunch({
-    //     url: '../peonyHomePage/peonyHomePage'
-    //   })
-    // }, 1000) //自动跳转延时设置
+
   },
   jumpPage:function(){
     console.log('跳转成功')
