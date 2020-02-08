@@ -26,7 +26,15 @@
 </view>
 
 <view class="text_box">
-  <view class="text">{{distance}}</view>
-  <view class="text">{{cost}}</view>
+  <view class='text_item'>
+    <image src="../../../images/distance.png" class='text_image'></image>
+    <view class="empty"></view>
+    <view class="text">{{distance}}</view>
+  </view>
+  <view class='text_item'>
+    <image src="../../../images/shijian.png" class='text_image'></image>
+    <view class="empty"></view>
+    <view class="text">{{cost}}</view>
+  </view>
   <view class="detail_button" bindtouchstart="goDetail">详情</view>
 </view>

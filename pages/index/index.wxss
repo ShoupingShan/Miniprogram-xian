@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  -webkit-overflow-scrolling: touch
 }
 
 .userinfo-avatar {

@@ -2,6 +2,7 @@
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
+  -webkit-overflow-scrolling: touch;
 }
 .flex-item{
   height: 35px; 
@@ -41,13 +42,33 @@
 }
 .text_box{
   position:absolute;
-  height: 90px;
+  height: 80px;
   bottom: 0px;
-  left: 0px;
+  left: 10px;
   right: 0px;
 }
+.text_item{
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  width: 60%;
+  /* height: 70rpx; */
+}
+.text_image{
+  margin: 5px;
+  height: 40rpx;
+  width: 40rpx;
+  margin-left: 5rpx;
+}
+.empty{
+  margin: 5px;
+  width: 10px;
+  height: 45rpx;
+}
 .text_box .text{
-  margin: 15px;
+  margin: 5px;
+  font-size: 14px;
+  height: 45rpx;
 }
 .detail_button{
   position:absolute;

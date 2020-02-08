@@ -33,5 +33,6 @@
   padding: 15px 0;
   border-bottom: 1px solid #c3c3c3;
   font-size: 13px;
+  /* width: 80%; */
 }
 .text_box .text_item{display:inline-block;line-height: 8px;}

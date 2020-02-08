@@ -30,7 +30,6 @@ Page({
       sizeType: ['original', 'compressed'], // 可以指定时原图还是压缩图,默认两者都有
       sourceTYpe: ['album', 'camera'], //可以指定来源是相册还是相机，默认两者都有
       success: function(res) {
-        //console.log(res)
         // 将生成的本地图片路径保存先保存起来，取数组的第一个
         var tempFilePath = res.tempFilePaths[0];
         // 将生成的本地图片路径保存在全局的变量uploadImg中
@@ -50,11 +49,11 @@ Page({
               })
             } else {
               _this.setData({
-                judgeNetWork: true
+                judgeNetWork: true,
+                isShow: false,
+                tempFilePath: tempFilePath
               })
               //上传服务器地址进行识别   
-              console.log(app.globalData.peonyLocation)
-              console.log(app.globalData.url)
               timeId = setTimeout(function() {
                 requestTask = wx.uploadFile({
                   url: app.globalData.url + '/classification',
@@ -71,11 +70,8 @@ Page({
                     location: (app.globalData.peonyLocation ? app.globalData.peonyLocation:'')
                   },
                   success: function(res) {
-                    console.log('I am alive1')
-                    console.log(JSON.parse(res.data));
                     if (JSON.parse(res.data).code == "1000") {
                       app.globalData.peonyResultInfo = res.data;
-                      /*console.log(app.globalData.peonyResultInfo);*/
                       //初始化数据页面跳转时
                       wx.navigateTo({
                         url: '../peonyResult/peonyResult'
@@ -98,7 +94,6 @@ Page({
                     }
                   },
                   fail: function(err) {
-                    console.log('I am dead')
                     wx.showToast({
                       title: '服务器繁忙',
                       image: '../../images/shiban.png',
@@ -114,7 +109,7 @@ Page({
                   }
                 })
               }, 1000)
-              //10s 未能识别该牡丹花品种 就返回首页
+              //30s 未能识别该种类 就返回首页
               uploadId = setTimeout(function() {
                 requestTask.abort();
                 _this.setData({
@@ -133,11 +128,9 @@ Page({
   },
   // 判断网络状态
   refreshBtn() {
-    //console.log(7887);
     var that = this;
     wx.getNetworkType({
       success: function(res) {
-        //console.log(res);
         if (res.networkType == "none") {
           that.setData({
             judgeNetWork: false
@@ -176,30 +169,10 @@ Page({
         }
       },
     })
-    // 获取用户地址信息
-    // wx.getLocation({
-    //   type: 'wgs84',
-    //   success: function(res) {
-    //     var latitude = res.latitude; //获取经度
-    //     var longitude = res.longitude; //获取维度
-    //     demo.reverseGeocoder({
-    //       location: {
-    //         latitude: latitude,
-    //         longitude: longitude
-    //       },
-    //       success:function(res){
-    //        // console.log(res);
-    //         app.globalData.peonyLocation = res.result.address_component.city + res.result.address_component.district + res.result.address_component.street;
-    //         //console.log(app.globalData.peonyLocation);
-    //       }
-    //     })
-    //     //console.log(res);
-    //   },
-    // })
+  
     var myAmapFun = new amapFile.AMapWX({ key: 'ac7e6cc898cc92807d794cfeee0d2335' });
     myAmapFun.getRegeo({
       success: function (data) {
-        console.log(data)
         app.globalData.peonyLocation = data[0].desc
         app.globalData.desciption = data[0].name
         app.globalData.latitude = data[0].latitude
@@ -210,7 +183,6 @@ Page({
       }
     })
 
-    // console.log(that.data)
     if (app.globalData.userInfo) {
       that.setData({
         userInfo: app.globalData.userInfo,
@@ -219,7 +191,6 @@ Page({
     } else if (that.data.canIUse) {
       wx.getUserInfo({
         success: res => {
-          console.log(res);
           app.globalData.userInfo = res.userInfo
           that.setData({
             userInfo: res.userInfo,
@@ -239,7 +210,6 @@ Page({
       // 在没有 open-type=getUserInfo 版本的兼容处理
       wx.getUserInfo({
         success: res => {
-          console.log(res);
           app.globalData.userInfo = res.userInfo
           that.setData({
             userInfo: res.userInfo,
@@ -251,7 +221,6 @@ Page({
 
   },
   getUserInfo: function(e) {
-    console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
@@ -307,7 +276,9 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
-
+  onShareAppMessage: function () {
+    return {
+      title: '浑水摸鱼-最西安'
+    }
   }
 })

@@ -66,8 +66,15 @@ Page({
           }]
         });
         if(data.paths[0] && data.paths[0].distance){
+          var _distance = '';
+          if (parseInt(data.paths[0].distance) > 1000) {
+            _distance = parseInt(data.paths[0].distance) / 1000 + '公里'
+          } else {
+            _distance = parseInt(data.paths[0].distance) + '米'
+          }
+          
           that.setData({
-            distance: '相距' + data.paths[0].distance + '米'
+            distance: '   ' + _distance
           });
         }
         console.log(data)
@@ -77,8 +84,12 @@ Page({
           });
         }
         if (data.paths[0] && data.paths[0].duration) {
+          var _time = '';
+          var hour = parseInt(data.paths[0].duration) / 3600 > 0 ? Math.floor(parseInt(data.paths[0].duration) / 3600) + '小时' : '';
+          var minute = parseInt(data.paths[0].duration) % 3600 / 60 > 0 ? Math.floor(parseInt(data.paths[0].duration) % 3600 / 60) + '分钟' : '';
+          _time = hour + minute
           that.setData({
-            cost: '预计耗时' + parseInt(data.paths[0].duration / 60) + '分钟' 
+            cost: '   约' + _time
           });
         }
           

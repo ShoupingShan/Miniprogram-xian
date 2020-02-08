@@ -10,7 +10,7 @@ page {
   height: 100%;
   overflow: hidden;
   background: #fff;
-  
+  -webkit-overflow-scrolling: touch;
 }
 
 /* 图片盒子 */

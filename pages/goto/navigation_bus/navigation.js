@@ -57,7 +57,7 @@ Page({
               if(segments[j].bus && segments[j].bus.buslines && segments[j].bus.buslines[0] && segments[j].bus.buslines[0].name){
                 var name = segments[j].bus.buslines[0].name
                 if(j!==0){
-                  name = '--' + name;
+                  name = '\n换乘：' + name;
                 }
                 transits[i].transport.push(name);
               }

@@ -11,6 +11,7 @@ page {
   padding-top: 37rpx;
   /* background:#80cfbc; */
   background: #f2f2f2;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* 搜索框盒子 */
@@ -86,6 +87,7 @@ page {
   color: #333;
   line-height: 60rpx;
   margin-left: 10rpx;
+  text-align: center;
 }
 
 ::-webkit-scrollbar{

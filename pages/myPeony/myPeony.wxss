@@ -10,6 +10,7 @@ page {
   height: 100%;
   background: #f2f2f2;
   overflow: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* 头像盒子 */

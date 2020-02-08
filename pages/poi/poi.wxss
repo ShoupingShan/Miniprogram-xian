@@ -16,6 +16,7 @@
   bottom: 80px;
   left: 0;
   right: 0;
+  -webkit-overflow-scrolling: touch;
 }
 .map{
   width: 100%;
