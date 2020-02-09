@@ -18,8 +18,12 @@ Page({
     // 由于第一次加载的时候就要自增1，所以默认值设置为0
     pageIndex: 0,
     pageSize: 10,
+    total: 0,
     // 2.1用于记录是否还有更多的数据
     hasMore: true,
+    startX: 0, //开始坐标
+    startY: 0,
+    deleteNum: 0,
   },
   //利用正则截取字符串
   matchReg: function matchReg(str) {
@@ -39,7 +43,8 @@ Page({
       data: {
         userId: app.globalData.userInfo.nickName,
         pageNum: ++that.data.pageIndex,
-        pageSize: that.data.pageSize
+        pageSize: that.data.pageSize,
+        deleteNum: that.data.deleteNum,
       },
       success: (res) => {
         //console.log(res);
@@ -52,12 +57,18 @@ Page({
           })
           //还要设置是否获取到所有数据
           var newList = this.data.peonyList.concat(res.data.data.list);
+          newList.forEach(function (v, i) {
+
+            if (!v["isTouchMove"])//只操作为true的
+              v["isTouchMove"] = false;
+          })
           //console.log(newList.length,count)
           var flag = newList.length < count;
           that.setData({
             identificationRecordNum: res.data.data.total,
             peonyList: newList,
             hasMore: flag,
+            total: count,
           })
         }
       },
@@ -72,9 +83,114 @@ Page({
     })
 
   },
+
+  //手指触摸动作开始 记录起点X坐标
+  touchstart: function (e) {
+    //开始触摸时 重置所有删除
+    this.data.peonyList.forEach(function (v, i) {
+      if (v.isTouchMove)//只操作为true的
+        v.isTouchMove = false;
+    })
+    this.setData({
+      startX: e.changedTouches[0].clientX,
+      startY: e.changedTouches[0].clientY,
+      peonyList: this.data.peonyList
+    })
+  },
+
+  //滑动事件处理
+  touchmove: function (e) {
+    var that = this;
+    var index = e.currentTarget.dataset.index;//当前索引
+    var startX = that.data.startX;//开始X坐标
+    var startY = that.data.startY;//开始Y坐标
+    var touchMoveX = e.changedTouches[0].clientX;//滑动变化坐标
+    var touchMoveY = e.changedTouches[0].clientY;//滑动变化坐标
+    //获取滑动角度
+    var angle = that.angle({ X: startX, Y: startY }, { X: touchMoveX, Y: touchMoveY });
+    that.data.peonyList.forEach(function (v, i) {
+      v.isTouchMove = false
+      //滑动超过30度角 return
+      if (Math.abs(angle) > 30) return;
+      if (i == index) {
+        if (touchMoveX > startX) //右滑
+          v.isTouchMove = false
+        else //左滑
+          v.isTouchMove = true
+      }
+    })
+    //更新数据
+
+    that.setData({
+      peonyList: that.data.peonyList
+    })
+  },
+
+  /**
+  * 计算滑动角度
+  * @param {Object} start 起点坐标
+  * @param {Object} end 终点坐标
+  */
+
+  angle: function (start, end) {
+    var _X = end.X - start.X,
+      _Y = end.Y - start.Y
+    //返回角度 /Math.atan()返回数字的反正切值
+    return 360 * Math.atan(_Y / _X) / (2 * Math.PI);
+  },
+
+  //删除事件
+  del: function (e) {
+    this.data.peonyList.splice(e.currentTarget.dataset.index, 1);
+    this.deletefromDB(e.currentTarget.dataset.index);
+    console.log(e.currentTarget.dataset.index)
+    this.setData({
+      identificationRecordNum: this.data.total - 1,
+      peonyList: this.data.peonyList,
+      total: this.data.total - 1,
+      deleteNum: this.data.deleteNum + 1,
+    })
+  },
+
+  //请求数据
+  deletefromDB(index) {
+    var that = this;
+    wx.request({
+      url: app.globalData.url + '/deleteItem',
+      header: {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      data: {
+        userId: app.globalData.userInfo.nickName,
+        deleteId: index,
+      },
+      success: function (res) {
+        //console.log(res);
+        if (res.data.code == "1000") {
+          wx.showToast({
+            title: '删除成功',
+            duration: 1000
+          })
+        }
+      },
+      fail: function (err) {
+        this.setData({
+          detailsShow: false
+        })
+        wx.showToast({
+          title: '服务器错误',
+          duration: 1000,
+          image: '../../images/shiban.png'
+        })
+        setTimeout(function () { wx.hideToast() }, 1000)
+      }
+    })
+  },
+
   //跳转页面
   selHistorical(e) {
-    var item = e.currentTarget.dataset.item;
+    // console.log(this.data, e.currentTarget.dataset)
+    var item = this.data.identificationRecordNum - e.currentTarget.dataset.item - 1;
     console.log('jump to', item);
     console.log('debug', e.currentTarget);
     wx.navigateTo({
@@ -217,6 +333,7 @@ Page({
       identificationRecordNum: 0,
       peonyList: [],
       hasMore: true,
+      deleteNum: 0,
     });
     this.loadMore();
     console.log('刷新ing')

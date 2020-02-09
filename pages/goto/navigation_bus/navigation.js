@@ -40,6 +40,11 @@ Page({
         markers: markers,
         city: e.city
       });
+    }else{
+      wx.showToast({
+        title: '暂无公交路线',
+        duration: 1000
+      })
     }
     var myAmapFun = new amapFile.AMapWX({ key: 'ac7e6cc898cc92807d794cfeee0d2335'});
     myAmapFun.getTransitRoute({
@@ -48,7 +53,7 @@ Page({
       city: this.data.city,
       success: function(data){
         console.log(data)
-        if(data && data.transits){
+        if(data && data.transits.length > 0){
           var transits = data.transits;
           for(var i = 0; i < transits.length; i++){
             var segments = transits[i].segments;
@@ -63,6 +68,12 @@ Page({
               }
             }
           }
+        }else{
+          wx.showToast({
+            title: '暂无公交路线',
+            image: '../../../images/donotfind.png',
+            duration: 1000
+          })
         }
         that.setData({
           transits: transits

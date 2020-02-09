@@ -107,16 +107,52 @@ page {
 /* 识别纪录展示信息每列 */
 
 .recordInformation-item {
-  width: 710rpx;
+  /* width: 710rpx; */
   height: 176rpx;
   border-bottom: 1px solid #e8e8e8;
   box-sizing: border-box;
   padding-top: 21rpx;
   flex-direction: row;
-  justify-content: center;
+  /* justify-content: center; */
   display: flex;
+  /*新加*/
+  justify-content: space-between;
+  overflow: hidden;
+  width: 100%;
+  margin-right:0;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-transform: translateX(90px);
+  transform: translateX(90px);
+  margin-left: -90px
+}
+.del {
+background-color: orangered;
+width: 90px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+color: #fff;
+-webkit-transform: translateX(90px);
+transform: translateX(90px);
+-webkit-transition: all 0.4s;
+transition: all 0.4s;
 }
 
+.touch-item {
+font-size: 14px;
+display: flex;
+justify-content: space-between;
+border-bottom:1px solid #ccc;
+width: 100%;
+overflow: hidden
+}
+
+.touch-move-active .recordInformation-item, .touch-move-active .del {
+-webkit-transform: translateX(0);
+transform: translateX(0);
+}
 
 /* 设置上传历史信息的图片 */
 
@@ -143,16 +179,17 @@ page {
 
 .recordInformation-item_back {
   position: absolute;
-  width: 25rpx;
-  height: 42rpx;
+  width: 50rpx;
+  height: 50rpx;
   overflow: hidden;
   top: 50rpx;
   right: 0rpx;
 }
 
 .recordInformation-item_back image {
-  width: 25rpx;
-  height: 42rpx;
+  display: flex;
+  width: 50rpx;
+  height: 50rpx;
 }
 
 /* 名称信息展示 */

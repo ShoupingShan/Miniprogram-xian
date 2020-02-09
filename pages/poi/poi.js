@@ -30,6 +30,7 @@ Page({
       iconPathSelected: '../../images/marker_checked.png',
       iconPath: '../../images/marker.png',
       success: function(data){
+        console.log('Successful', data)
         markersData = data.markers;
         var poisData = data.poisData;
         var markers_new = [];
@@ -51,10 +52,18 @@ Page({
 
         })
         //初始化
-        that.showMarkerInfo(markersData, 0);
-        that.changeMarkerColor(markersData, 0);
-        choosenLatitude = markersData[0].latitude
-        choosenLongitude = markersData[0].longitude
+        if (markersData.length > 0){
+          that.showMarkerInfo(markersData, 0);
+          that.changeMarkerColor(markersData, 0);
+          choosenLatitude = markersData[0].latitude
+          choosenLongitude = markersData[0].longitude
+        }else{
+          wx.showToast({
+            title: '未查找到相关信息',
+            duration: 1000
+          })
+        }
+        
         if(markersData.length > 0){
           that.setData({
             markers: markers_new
@@ -106,7 +115,8 @@ Page({
         
       },
       fail: function(info){
-        // wx.showModal({title:info.errMsg})
+        console.log('Unseccessful')
+        wx.showModal({title:info.errMsg})
       }
     }
     if(e && e.keywords){

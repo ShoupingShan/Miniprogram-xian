@@ -1,5 +1,5 @@
 .section{
-  height: 25px;
+  height: 45px;
   width: 100%;
 }
 .section input{
@@ -12,6 +12,7 @@
 }
 .text_box{
   margin: 10px 25px;
+  padding-top: 5rpx;
   border-bottom:1px solid #c3c3c3;
   padding-bottom:10px
 }
