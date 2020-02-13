@@ -25,15 +25,17 @@
   </view>
   <!--名称 -->
   <view class='peonyInfo-names'>
-    <text>查询结果</text>
-    <text class='peonyInfo-names_text'>{{peonyname}}</text>
-    <!-- <view class='test'> -->
-    <view class='neighbor1' data-template="{{peonyname}}" bindtap='searchNeighbor'>
-      <image src="../../images/neighbor.png" class='neighbor'></image>
-      <!-- <text> 周边 </text> -->
+    <text class='peonyInfo-names_text'>查询结果：   {{softmax[0].label}}</text>
+    <view class='neighbor1_feedback' data-template="{{coverResultImg}}" bindtap='bind_feedback'>
+      <image src="../../images/feedback.png" class='neighbor'></image>
+      <text class='tips_feedback'>点我反馈</text>
     </view>
     <!-- </view> -->
   </view>
+  
+  <modal class='modal_feedback' hidden="{{hiddenfeedback}}" title="识别错误反馈" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
+      <input type='text'placeholder="请输入正确类别" auto-focus value="{{feedback_txt}}" bindinput="feedback_txt"/>  
+  </modal>
 
   <view class='content' style='height:{{scrollHeight}}px'>
     <view class='intro-text'>

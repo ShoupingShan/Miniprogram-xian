@@ -14,6 +14,10 @@ Page({
     coverResultImg: '', //模板图片
     uploadResultImg: '',// 用户上传的图片
     peonyResultTimes: '',
+    hiddenDetail:false,
+    hiddenBaike:true,
+    matrix:[],
+    softmax:[],
     peonyLocation:'', //拍摄地点
     hiddenfeedback: true,
     feedback_txt:'',
@@ -59,6 +63,8 @@ Page({
       peonyResultname: infoAll.state ? infoAll.predictions[0].label:"暂无数据",
       peonyResultScore: infoAll.state ? infoAll.predictions[0].probability : "暂无数据",
       coverResultImg: infoAll.cam,
+      matrix: infoAll.match_images,
+      softmax:infoAll.predictions,
       uploadResultImg: app.globalData.uploadImg,
       peonyResultTimes: infoAll.createTime ? utils.getTime(infoAll.createTime) : utils.getTime(new Date),
       peonyLocation: app.globalData.peonyLocation ? app.globalData.peonyLocation:"暂无数据"
@@ -259,13 +265,38 @@ Page({
   onReachBottom: function () {
 
   },
-
+  // 点击图片
+  detailsShow(e) {
+    var detailsId = e.currentTarget.dataset.template;
+    var currentImg = this.data.matrix[detailsId];
+    var arr = [];
+    arr.push(currentImg);
+    arr.push(this.data.uploadImg);
+    wx.previewImage({
+      urls: arr,
+      current: currentImg
+    })
+  },
+  clickquery_detail:function(){
+    var that = this
+    that.setData({
+      hiddenBaike:true,
+      hiddenDetail:false,
+    })
+  },
+  clickquery_baike: function () {
+    var that = this
+    that.setData({
+      hiddenBaike: false,
+      hiddenDetail: true,
+    })
+  },
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
     return {
-      title: '浑水摸鱼-最西安'
+      title: '浑水摸鱼-西安瞰点'
     }
   }
 })

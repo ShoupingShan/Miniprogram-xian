@@ -149,8 +149,8 @@ color: #666666;
 }
 
 .peonyInfo-names {
-  width: 50%;
-  padding-left: 25rpx;
+  width: 40%;
+  padding-left: 20rpx;
   box-sizing: border-box;
   overflow: hidden;
   font-size: 28rpx;
@@ -160,8 +160,22 @@ color: #666666;
   border-bottom: 1px solid #ccc;
 }
 
+.peonyInfo-names_text{
+  margin-left: 3px;
+}
+
+.brief-detail{
+  width: 18%;
+  height: 100%;
+  margin-top: 20rpx;
+  margin-right: 50rpx
+}
+.query_detail{
+  border-radius: 3rpx;
+  font-size: 27rpx;
+}
 .neighbor1{
-  width: 10%;
+  width: 20%;
   line-height: 88rpx;
   box-sizing: border-box;
   height: 88rpx;
@@ -169,31 +183,29 @@ color: #666666;
   overflow: hidden;
   margin-right: 15rpx;
 }
-.neighbor{
+.neighbor1_feedback{
+  width: 20%;
+  line-height: 88rpx;
+  box-sizing: border-box;
+  height: 88rpx;
+  /* padding-left: 21rpx; */
+  overflow: hidden;
+}
+.tips_feedback{
   margin-top: 20rpx;
   height: 45rpx;
   width: 45rpx;
+  font-size: 18rpx;
+  color: #ccc;
+}
+.neighbor{
+  margin-top: 20rpx;
+  height: 65rpx;
+  width: 65rpx;
+  
 }
 
-.peonyInfo-names_text {
-  margin-left: 15rpx;
-}
-.intro-text{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-}
-.brief-intro {
-  width: 100%;
-  box-sizing: border-box;
-  font-size: 31rpx;
-  color: #333;
-  padding-left: 21rpx;
-  margin-top: 16rpx;
-  height: 45rpx;
-  overflow: hidden;
-}
+
 /* 富文本编辑器设置 */
 
 .content{
@@ -226,4 +238,71 @@ color: #666666;
 .content::-webkit-scrollbar-track {
   background-color: #ddd;
   border-radius: 6rpx;
+}
+
+.table{
+  border:1px solid #dadada;
+  border-right:0;
+  border-bottom: 0;
+  width: 98%;
+  margin-left: 1%;
+}
+.tr{
+  width:100%;
+  display: flex;
+  justify-content: space-between;
+}
+.th,.td{
+  padding: 10px;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  text-align: center;
+  width: 100%;
+}
+
+.th1,.th3,.td1,.td3{
+  width: 50%;
+}
+.th{
+  font-weight: 800;
+  background-color: #ffffff;
+  font-size: 28rpx;
+  color: #330e0e;
+}
+.td{
+  font-size: 30rpx;
+  color: #d4237a;
+}
+
+.matrix {
+  width: 709rpx;
+  margin: 0 auto;
+  /* height: 100%; */
+  box-sizing: border-box;
+  /* overflow: auto; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 15rpx;
+  padding-bottom: 15rpx;
+}
+
+.package-matrix-view{
+  height: 230rpx;
+  overflow: hidden;
+}
+
+.package-matrix-view image {
+  width: 220rpx;
+  height: 220rpx;
+  margin-left: 10rpx;
+}
+
+.intro-text{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-left: 15rpx;
+
 }

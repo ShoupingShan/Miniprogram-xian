@@ -16,7 +16,10 @@ Page({
     uploadImg: '', // 用户上传的图片
     peonyTimes: '',
     isShow: true, //控制页面显示
-    itemid:0
+    itemid:0,
+    hiddenfeedback: true,
+    feedback_txt: '',
+    feedback: '',
   },
 
   /**
@@ -97,7 +100,7 @@ Page({
             location: (res.data.data.location ? res.data.data.location:'暂无地址'), //查询的位置
             softmax: res.data.data.softmax_prob,
             matrix: res.data.data.match_images,
-            cosine: res.data.data.match_times
+            cosine: res.data.data.match_times,
           })
           var temp = WxParse.wxParse('article', 'html', res.data.data.content, that)
         }
@@ -151,6 +154,69 @@ Page({
     })
   },
 
+  bind_feedback(e) {
+    var that = this;
+    that.setData({
+      // feedback_item: e.currentTarget.dataset.template,
+      hiddenfeedback: !that.data.hiddenfeedback,
+    }
+    )
+  },
+  //取消按钮
+  cancel: function () {
+    this.setData({
+      "feedback_txt": '',
+      hiddenfeedback: true,
+    });
+  },
+  feedback_txt: function (e) {
+    var that = this
+    that.setData({
+      feedback: e.detail.value
+    })
+  },
+  //确认
+  confirm: function () {
+    var that = this
+
+    wx.request({
+      url: app.globalData.url + '/feedback',
+      data: {
+        userId: app.globalData.userInfo.nickName,
+        prediction: that.data.peonyname,
+        name: that.data.uploadImg,
+        user_feedback: that.data.feedback,
+      },
+      success: function (res) {
+        if (res.data.code == "1000") {
+          wx.showToast({
+            title: '感谢反馈',
+            duration: 1000
+          })
+        } else {
+          wx.showToast({
+            title: '反馈失败',
+            image: '../../images/shiban.png',
+            duration: 1000
+          })
+        }
+      },
+      fail: function (err) {
+        wx.showToast({
+          title: '服务器错误',
+          duration: 1000,
+          image: '../../images/shiban.png'
+        })
+        setTimeout(function () {
+          wx.hideToast()
+        }, 1000)
+      }
+    })
+    this.setData({
+      "feedback_txt": '',
+      hiddenfeedback: true
+    })
+  },
   // 产看周边
   searchNeighbor(e) {
     var refer = {

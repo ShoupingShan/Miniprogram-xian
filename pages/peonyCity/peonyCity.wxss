@@ -92,7 +92,13 @@ page {
   flex-direction: column;
   line-height: 60rpx;
   margin-left: 10rpx;
+  height: 100%;
 }
+
+.image-item_name_text{
+  height: 100%;
+}
+
 .temp_txt{
   height: 40%;
   padding-top: 50rpx;

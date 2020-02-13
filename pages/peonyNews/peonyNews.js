@@ -87,7 +87,8 @@ Page({
     wx.request({
       url: app.globalData.url + '/query_news_by_id',
       data: {
-        templateId: parseInt(that.data.detailsId)
+        templateId: parseInt(that.data.detailsId),
+        userName: app.globalData.userInfo.nickName,
       },
       success: function (res) {
         //console.log(res);

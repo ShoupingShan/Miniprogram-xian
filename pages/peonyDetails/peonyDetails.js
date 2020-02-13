@@ -98,6 +98,7 @@ Page({
             peonyDetailsImg: res.data.data.coverImageUrl,
             peonyDetailsname: res.data.data.name,
             peonyDetailscate: res.data.data.cate,
+            userName: app.globalData.userInfo.nickName,
           })
           var temp = WxParse.wxParse('article', 'html', res.data.data.content, that)
         }

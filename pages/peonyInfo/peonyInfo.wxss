@@ -126,15 +126,7 @@ margin-right: 15rpx;
 .peonyInfo-date_text{
 color: #666666;
 }
-/*新增*/
-/* .softmax{
-  width: 668rpx;
-  height: 578rpx;
-  left: 50%;
-  top: 70rpx;
-  overflow-y: scroll;
-  overflow-x: hidden;
-} */
+
 .table{
   border:1px solid #dadada;
   border-right:0;
@@ -169,26 +161,6 @@ color: #666666;
   color: #d4237a;
 }
 
-/* .package-softmax {
-  width: 710rpx;
-  height: 76rpx;
-  border-bottom: 1px solid #e8e8e8;
-  box-sizing: border-box;
-  padding-top: 21rpx;
-  flex-direction: row;
-  justify-content: center;
-  display: flex;
-} */
-/* .package-matrix {
-  width: 710rpx;
-  height: 176rpx;
-  border-bottom: 1px solid #e8e8e8;
-  box-sizing: border-box;
-  padding-top: 21rpx;
-  flex-direction: row;
-  justify-content: center;
-  display: flex;
-} */
 .matrix {
   width: 709rpx;
   margin: 0 auto;
@@ -217,24 +189,6 @@ color: #666666;
   margin-left: 10rpx;
 }
 
-/* .package-matrix-image{
-  width: 135rpx;
-  height: 135rpx;
-  overflow: hidden;
-} */
-
-
-/* .peonyInfo-names {
-  width: 100%;
-  padding-left: 21rpx;
-  box-sizing: border-box;
-  overflow: hidden;
-  font-size: 38rpx;
-  line-height: 88rpx;
-  height: 88rpx;
-  color: #000;
-  border-bottom: 1px solid #ccc;
-} */
 
 .peonyInfo-names{
   margin-top: 20rpx;
@@ -250,13 +204,30 @@ color: #666666;
 
 .peonyInfo-names_text {
   margin-left: 15rpx;
+  color:#d4237a;
+  font-size: 30rpx;
+  margin-top: 10rpx;
+}
+
+.tips_feedback{
+  margin-top: 20rpx;
+  height: 45rpx;
+  width: 45rpx;
+  font-size: 18rpx;
+  color: #ccc;
 }
 .neighbor{
-  padding-left: 20rpx;
   height: 55rpx;
   width: 55rpx;
 }
-
+.neighbor1_feedback{
+  width: 20%;
+  line-height: 88rpx;
+  box-sizing: border-box;
+  height: 88rpx;
+  /* padding-left: 21rpx; */
+  overflow: hidden;
+}
 .intro-text {
   width: 100%;
   box-sizing: border-box;
@@ -281,26 +252,6 @@ color: #666666;
   box-sizing: border-box;
 }
 
-
-/*凹槽宽度*/
-/* .content::-webkit-scrollbar {
-  width: 8rpx;
-  height: 8rpx;
-} */
-
-/*拖动条*/
-
-/* .content::-webkit-scrollbar-thumb {
-  background-color: #ccc;
-  border-radius: 6rpx;
-} */
-
-/*背景槽*/
-
-/* .content::-webkit-scrollbar-track {
-  background-color: #ddd;
-  border-radius: 6rpx;
-} */
 
 
 ::-webkit-scrollbar{

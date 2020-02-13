@@ -29,30 +29,80 @@
   <view class='peonyLabel-Prob'>
     <!-- 获取Top1类标 -->
     <view class='peonyInfo-names'>
-      <text>预测结果</text>
+      <text>预测结果:</text>
       <text class='peonyInfo-names_text'>{{peonyResultname}}</text>
     </view>
     <view class='peonyInfo-names'>
-      <text>置信度</text>
+      <text>置信度:</text>
       <text class='peonyInfo-names_text'>{{peonyResultScore}}</text>
-    </view>
-    <view class='neighbor1' data-template="{{peonyResultname}}" bindtap='searchNeighbor'>
-      <image src="../../images/neighbor.png" class='neighbor'></image>
     </view>
   </view>
   <view class='intro-text'>
-    <view class='brief-intro'>
-      <text>简介</text>
+
+    <view class='brief-detail'>
+      <button class='query_detail' bindtap="clickquery_detail">详情</button>
     </view>
-    <view class='neighbor1' data-template="{{coverResultImg}}" bindtap='bind_feedback'>
+    <view class='brief-detail'>
+      <button class='query_detail' bindtap="clickquery_baike">百科</button>
+    </view>
+    
+    <view class='neighbor1_feedback' data-template="{{coverResultImg}}" bindtap='bind_feedback'>
       <image src="../../images/feedback.png" class='neighbor'></image>
+      <text class='tips_feedback'>点我反馈</text>
+    </view>
+
+    <view class='neighbor1' data-template="{{peonyResultname}}" bindtap='searchNeighbor'>
+      <image src="../../images/neighbor.png" class='neighbor'></image>
+      <text class='tips_feedback'>试试周边</text>
     </view>
   </view>
   <modal class='modal_feedback' hidden="{{hiddenfeedback}}" title="识别错误反馈" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
       <input type='text'placeholder="请输入正确类别" auto-focus value="{{feedback_txt}}" bindinput="feedback_txt"/>  
   </modal>
+
   <!-- 显示查询详细信息 -->
-  <view class='content' style='height:{{scrollHeight}}px'>
+  <view class='content'  hidden="{{hiddenDetail}}" style='height:{{scrollHeight}}px'>
+    <view class='intro-text'>
+      <text>Softmax</text>
+    </view>
+    <view class='softmax'>
+      <view class="table">
+        <view class="tr">
+          <view class="th th1">Rank</view>
+          <view class="th th2">Label</view>
+          <view class="th th3">Prob</view>
+        </view>
+        <view class='tr' wx:for="{{softmax}}" wx:for-index="index" wx:key="item" wx:for-item="item">
+            <view class="td td1">{{index}}</view>
+            <view class="td td2">{{item.label}}</view>
+            <view class="td td3">{{item.probability}}</view>
+            <!-- <view class='package-softmax'>
+              <view class="pred-rank">Rank: </view>
+              <view class="pred-result">{{item.label}}</view>
+              <view class="pred-prob">{{item.probability}}</view>
+            </view> -->
+        </view>
+      </view>
+    </view>
+    <view class='intro-text'>
+      <text>相似度匹配</text>
+    </view>
+    <view class='matrix'>
+      <block class='matrix-block' wx:for="{{matrix}}" wx:for-index="index" wx:key="item" wx:for-item="item">
+        <view class='package-matrix'>
+          <view class='package-matrix-view' data-template="{{index}}" bindtap='detailsShow'>
+            <image src='{{item}}' mode='cover'  lazy-load="true"></image> <!--显示训练集中最相似的图片-->
+          </view>
+          <!-- <view class='matrix-imformation'>
+            <view class="pred-prob">布贴绣</view>
+            <view class="pred-prob">{{item.times}}</view>
+          </view> -->
+        </view>
+      </block>
+    </view>
+  </view>
+  <!-- 显示百度百科 -->
+  <view class='content' hidden="{{hiddenBaike}}" style='height:{{scrollHeight}}px'>
     <view class='content-template'>
       <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
     </view>
