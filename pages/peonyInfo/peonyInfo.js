@@ -259,7 +259,22 @@ Page({
   onReachBottom: function() {
 
   },
-
+  errorFunction_source(e) {
+    if (e.type == "error") {
+      defult_image = '../../images/defult.png' //错误图片替换为默认图片
+      this.setData({
+        uploadImg: defult_image,
+      })
+    }
+  },
+  errorFunction_cam(e) {
+    if (e.type == "error") {
+      defult_image = '../../images/defult.png' //错误图片替换为默认图片
+      this.setData({
+        coverImg: defult_image,
+      })
+    }
+  },
   /**
    * 用户点击右上角分享
    */

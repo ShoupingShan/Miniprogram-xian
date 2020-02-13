@@ -1,15 +1,14 @@
 <import src="../../wxParse/wxParse.wxml" />
 <import src="../peonyNoNetwork/peonyNoNetwork.wxml" />
 <view class="peonyInfo" wx:if="{{judgeNetWork}}" id='peonyRecord' >
-<!-- 牡丹花图片信息 -->
   <view class='peonyInfo-imageBox'>
     <view class='peonyInfo-imageBox_item'>
       <view class='imageBox-item_uploadImg'>
-        <image src='{{uploadImg}}' mode='cover' bindtap='clickUpload'></image>
+        <image src='{{uploadImg}}' mode='cover' bindtap='clickUpload'  lazy-load="true"   binderror="errorFunction_source"></image>
         <text class='item-uploadImg_text'>上传图片</text>
       </view>
       <view class='imageBox-item_tempImg'>
-        <image src='{{coverImg}}' mode='cover' bindtap='clickCover'></image>
+        <image src='{{coverImg}}' mode='cover' bindtap='clickCover'  lazy-load="true"   binderror="errorFunction_cam"></image>
         <text class='item-tempImg_text'>类激活图</text>
       </view>
     </view>
@@ -66,7 +65,7 @@
       <block class='matrix-block' wx:for="{{matrix}}" wx:for-index="index" wx:key="item" wx:for-item="item">
         <view class='package-matrix'>
           <view class='package-matrix-view' data-template="{{index}}" bindtap='detailsShow'>
-            <image src='{{item}}' mode='cover'></image> <!--显示训练集中最相似的图片-->
+            <image src='{{item}}' mode='cover'  lazy-load="true"></image> <!--显示训练集中最相似的图片-->
           </view>
           <!-- <view class='matrix-imformation'>
             <view class="pred-prob">布贴绣</view>

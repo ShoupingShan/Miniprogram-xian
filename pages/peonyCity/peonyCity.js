@@ -19,9 +19,16 @@ Page({
   // 1.3 关键字查询数据
   loadMore: function() {
     var that = this;
-    if (!this.data.hasMore) return;
+    if (!this.data.hasMore){
+      wx.showToast({
+        title: '暂无更多',
+        image: '../../images/shiban.png',
+        duration: 1000
+      });
+      return;
+    } 
     wx.request({
-      url: app.globalData.url + '/query_all_result',
+      url: app.globalData.url + '/query_all_information',
       data: {
         pageNum: ++that.data.pageIndex,//每执行一次下拉获取更多操作就会让页数+1
         pageSize: that.data.pageSize
@@ -45,7 +52,13 @@ Page({
             identificationRecordNum: res.data.data.total,
             searchList: newList,
             hasMore: flag,
-          })
+          });
+          flag = that.data.pageIndex * that.data.pageSize < this.data.identificationRecordNum;
+          that.setData(
+            {
+              hasMore: flag
+            }
+          )
         } else {
           wx.showLoading({
             title: '正在加载',
@@ -71,7 +84,7 @@ Page({
   searchBtn: function() {
     var that = this;
     wx.request({
-      url: app.globalData.url + '/search',
+      url: app.globalData.url + '/search_news_by_key_word',
       data: {
         name: that.data.searchVal,
         userId: app.globalData.userInfo.nickName
@@ -136,7 +149,7 @@ Page({
   detailsPeony(e) {
     var detailsId = e.currentTarget.dataset.template;
     wx.navigateTo({
-      url: '../peonyDetails/peonyDetails?id=' + detailsId
+      url: '../peonyNews/peonyNews?id=' + detailsId
     })
 
   },
@@ -215,7 +228,7 @@ Page({
       pageIndex: 0,
       hasMore: true,
     });
-    // this.searchBtn();
+    // this.onLoad();
     this.loadMore();
     wx.stopPullDownRefresh();
   },
@@ -224,8 +237,19 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
+    console.log("触发了上拉触底事件的处理函数")
     this.loadMore();
     console.log("onReachBottom ++  底部了 ")
+  },
+  errorFunction(e) {
+    if (e.type == "error") {
+      var errorImgIndex = e.target.dataset.errorimg //获取错误图片循环的下标
+      var imgList = this.data.searchList                 //将图片列表数据绑定到变量
+      imgList[errorImgIndex].coverImageUrl = '../../images/defult.png'
+      this.setData({
+        peonyList: imgList
+      })
+    }
   },
   /**
    * 用户点击右上角分享

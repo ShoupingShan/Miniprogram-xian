@@ -1,0 +1,227 @@
+/* pages/analyse/analyse.wxss */
+.flex-style{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-overflow-scrolling: touch;
+  height:40px;
+}
+.jump_txt{
+  height: 30px;
+  font-size: 25rpx;
+  color:rgb(100, 100, 100);
+}
+.flex-item{
+  height: 40px; 
+  line-height: 40px;
+  text-align: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1
+}
+.ima-block{
+  margin-left: 30px;
+  height: 40px;
+  width: 80px;
+  text-align: center;
+  -webkit-box-flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  -webkit-flex: 1;
+  flex: 1
+}
+.tag_images{
+  height: 30px;
+  width: 30px;
+}
+.flex-item.active{
+  color:#0091ff;
+}
+.title{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+ } 
+.txt{
+  text-align: center;
+  color:rgb(141, 136, 136);
+  font-weight: 800;
+} 
+
+.canvas_container {
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    -webkit-text-size-adjust:none;
+    -webkit-user-select: none;
+    font-size: 35rpx;
+    color: #333;
+    margin-top: 40rpx;
+    font-family: Helvetica,Arial,"Helvetica Neue","Droid Sans","Microsoft YaHei",sans-serif;
+}
+.canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.feedback-total{
+  flex-direction: row;
+  width: 96%;
+  height: 280rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 16rpx;
+  margin-top: 30rpx;
+}
+.feedback-item{
+  flex-direction: column;
+  height: 220rpx;
+  align-items: center;
+  width: 50%;
+  margin-right: 10px;
+  margin-left: 10px;
+  background: #80cfbc;
+  border-radius: 10rpx;
+
+}
+.feed-title{
+  /* background: #0091ff; */
+  height:60%;
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+}
+.feed-title-txt{
+  font-size: 60rpx;
+  font-weight: 800;
+  color:#d4237a;
+}
+.feed-num-txt{
+  font-size: 65rpx;
+  font-weight: 900;
+  color:#ffffff;
+}
+.feed-num{
+  font-size: 40rpx;
+  font-weight: 700;
+  text-align: center;
+  height: 40%
+}
+
+.feedback_search{
+  flex-direction: row;
+  width: 96%;
+  height: 180rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 16rpx;
+  margin-top: 30rpx;
+}
+.query_list{
+  flex-direction: column;
+  height: 180rpx;
+  align-items: center;
+  width: 20%;
+  margin-right: 24px;
+  margin-left: 24px;
+  background: #d4237a;
+  border-radius: 10rpx;
+}
+.image-icon{
+  margin-top:10rpx;
+  margin-left: 20rpx;
+}
+.image-icon-ima{
+  width: 100rpx;
+  height: 100rpx;
+}
+.image-disc{
+  height:60rpx;
+  margin-left: 12rpx;
+}
+.image-disc-txt{
+  font-size: 20rpx;
+  color:#ffffff;
+  font-weight: 700;
+}
+
+.peonySearch-image,.judgeSearch {
+  /* width: 719rpx; */
+  border-bottom: 1px solid #e8e8e8;
+  margin: 10px;
+  height: 20%;
+  box-sizing: border-box;
+  /* overflow: auto; */
+  display: flex;
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+  margin-top: 20rpx;
+  padding-bottom: 10rpx;
+  border-radius: 5px;
+}
+
+.peonySearch-image_item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: #ffffff;
+  width: 100%;
+  height: 100%
+}
+
+.image-item {
+  margin-top: 28rpx;
+  width: 30%;
+  overflow: hidden;
+}
+
+.image-item image {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 5px
+}
+
+.image-item_name {
+  width:65%;
+  flex-direction: column;
+  line-height: 45rpx;
+  margin-left: 10rpx;
+  height:100%;
+}
+.temp_txt{
+  height: 30%;
+  font-size: 25rpx;
+  margin-top: 30rpx;
+  color: #ccc;
+  font-family: "Microsoft YaHei";
+  margin-left: 60rpx;
+
+}
+.temp_time{
+  /* margin-left: 180rpx; */
+  font-size: 35rpx;
+  padding-top: 20rpx;
+  color:#d4237a;
+  font-family: "Microsoft YaHei";
+}
+.temp_time_feedback{
+  font-size: 35rpx;
+  padding-top: 20rpx;
+  color:#04BE02;
+  font-family: "Microsoft YaHei";
+}
+
+.search_by_time_title{
+  /* height:40%; */
+}
+.search_by_time_txt{
+  margin-left: 20rpx;
+  font-size: 25rpx;
+  color:#ccc;
+}

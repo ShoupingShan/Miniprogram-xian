@@ -1,8 +1,7 @@
 // pages/myPeony/myPeony.js
-
-
 var utils = require('../../utils/util.js');
 const app = getApp()
+var startPoint;
 Page({
 
   /**
@@ -24,6 +23,11 @@ Page({
     startX: 0, //开始坐标
     startY: 0,
     deleteNum: 0,
+    buttonTop: 450,
+    buttonLeft: 300,
+    windowHeight: '',
+    windowWidth: '',
+    hiddenadmin:true,
   },
   //利用正则截取字符串
   matchReg: function matchReg(str) {
@@ -64,11 +68,13 @@ Page({
           })
           //console.log(newList.length,count)
           var flag = newList.length < count;
+          console.log(res.data.isAdmin)
           that.setData({
             identificationRecordNum: res.data.data.total,
             peonyList: newList,
             hasMore: flag,
             total: count,
+            hiddenadmin: !res.data.isAdmin,
           })
         }
       },
@@ -248,7 +254,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    var that = this
+    wx.getSystemInfo({
+      success: function (res) {
+        // // 屏幕宽度、高度
+        // 高度,宽度 单位为px
+        that.setData({
+          windowHeight: res.windowHeight,
+          windowWidth: res.windowWidth
+        })
+      }
+    })
   },
 
   /**
@@ -256,6 +272,44 @@ Page({
    */
   onReady: function() {
 
+  },
+  buttonStart: function (e) {
+    startPoint = e.touches[0]
+  },
+  buttonMove: function (e) {
+    var endPoint = e.touches[e.touches.length - 1]
+    var translateX = endPoint.clientX - startPoint.clientX
+    var translateY = endPoint.clientY - startPoint.clientY
+    startPoint = endPoint
+    var buttonTop = this.data.buttonTop + translateY
+    var buttonLeft = this.data.buttonLeft + translateX
+    //判断是移动否超出屏幕
+    if (buttonLeft + 50 >= this.data.windowWidth) {
+      buttonLeft = this.data.windowWidth - 50;
+    }
+    if (buttonLeft <= 0) {
+      buttonLeft = 0;
+    }
+    if (buttonTop <= 0) {
+      buttonTop = 0
+    }
+    if (buttonTop + 50 >= this.data.windowHeight) {
+      buttonTop = this.data.windowHeight - 50;
+    }
+    this.setData({
+      buttonTop: buttonTop,
+      buttonLeft: buttonLeft
+    })
+  },
+  buttonEnd: function (e) {
+
+  },
+
+  clickBtn: function () {
+    // console.log('跳转成功')
+    wx.navigateTo({
+      url: '../analyse/calculate/calculate'
+    })
   },
 
   /**
@@ -356,7 +410,17 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '浑水摸鱼-最西安'
+      title: '浑水摸鱼-西安瞰点'
     }
-  }
+  },
+  errorFunction_user(e) {
+    if (e.type == "error") {
+      var errorImgIndex = e.target.dataset.errorimg //获取错误图片循环的下标
+      var imgList = this.data.peonyList                 //将图片列表数据绑定到变量
+      imgList[errorImgIndex].shotImage = '../../images/defult.png' 
+      this.setData({
+        peonyList: imgList
+      })
+    }
+  },
 })

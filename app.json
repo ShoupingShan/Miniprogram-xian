@@ -3,11 +3,11 @@
     "pages/index/index",
     "pages/peonyHomePage/peonyHomePage",
     "pages/peonySearch/peonySearch",
+    "pages/peonyCity/peonyCity",
+    "pages/peonyNews/peonyNews",
     "pages/myPeony/myPeony",
     "pages/peonyNoNetwork/peonyNoNetwork",
-    "pages/text/text",
     "pages/animation/animation",
-    "pages/photoRec/photoRec",
     "pages/peonyDetails/peonyDetails",
     "pages/peonyInfo/peonyInfo",
     "pages/peonyResult/peonyResult",
@@ -20,12 +20,15 @@
     "pages/goto/navigation_ride_detail/navigation",
     "pages/goto/navigation_walk/navigation",
     "pages/goto/navigation_walk_detail/navigation",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/analyse/model/model",
+    "pages/analyse/feedback/feedback",
+    "pages/analyse/calculate/calculate"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTitleText": "最西安",
+    "navigationBarTitleText": "醉长安",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -45,6 +48,12 @@
         "text": "探索",
         "iconPath": "images/hua_1.png",
         "selectedIconPath": "images/hua_2.png"
+      },
+      {
+        "pagePath": "pages/peonyCity/peonyCity",
+        "text": "资讯",
+        "iconPath": "images/city_1.png",
+        "selectedIconPath": "images/city_2.png"
       },
       {
         "pagePath": "pages/myPeony/myPeony",

@@ -1,0 +1,6 @@
+{
+    "enablePullDownRefresh": true,
+    "navigationBarTitleText": "最新资讯",
+    "navigationBarBackgroundColor": "#F2F2F2",
+    "onReachBottomDistance": 400
+}

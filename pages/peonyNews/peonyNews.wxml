@@ -1,0 +1,24 @@
+<!--pages/peonyDetails/peonyNews.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<import src="../peonyNoNetwork/peonyNoNetwork.wxml" />
+<view class='peonyDetails-container' wx:if="{{judgeNetWork}}" id='peonyDetails'>
+  <view class='Details-name'>
+    <view class='Details-cate'>
+      <text class='Details-typeName'>{{peonyDetailsname}}</text>
+    </view>
+  </view>
+  <view class='Details-time'>
+      <text class='Details-text'>{{peonyDetailsweb}}      {{peonyDetailscate}}</text>
+  </view>
+  <!-- <view class='Details-intro'>
+    <text>简介</text>
+  </view> -->
+  <view class='Details-content' style='height:{{scrollHeight}}px;'>
+    <view class='content-template'>
+      <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+    </view>
+  </view>
+</view>
+<view class='PeonyPublicNetWork' wx:if="{{!judgeNetWork}}">
+  <template is="penonyNoNetWork" />
+</view>

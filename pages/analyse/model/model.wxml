@@ -1,0 +1,48 @@
+<!--pages/analyse/analyse.wxml-->
+<view class="flex-style">
+<view class="flex-item" bindtouchstart="goToGuest">
+  <view class='ima-block'>
+      <image src="../../../images/guest_admin1.png" class='tag_images' mode='cover'></image>
+      <text class='jump_txt'>访客统计</text>
+    </view>
+  </view>
+  <view class="flex-item" bindtouchstart="goToModel">
+    <view class='ima-block'>
+      <image src="../../../images/model_admin2.png" class='tag_images' mode='cover'></image>
+      <text class='jump_txt'>模型详情</text>
+    </view>
+  </view>
+  <view class="flex-item active" bindtouchstart="goToFeedback">
+  <view class='ima-block'>
+      <image src="../../../images/feedback_admin1.png" class='tag_images' mode='cover'></image>
+      <text class='jump_txt'>反馈记录</text>
+    </view>
+  </view>
+</view>
+
+
+  
+  
+
+<view class='train_history'>
+  <view class='title' bindtap="hidden_acc">
+      <text class='txt'>正确率曲线</text>
+    </view>
+  <view class='title' bindtap="hidden_loss">
+    <text class='txt'>损失曲线</text>
+  </view>
+  <view class='title' bindtap="hidden_lr">
+    <text class='txt'>学习率曲线</text>
+  </view>
+</view>
+<view class="canvas_container" hidden="{{hiddenAcc}}">
+      <canvas canvas-id="lineCanvas_acc" disable-scroll="true" class="canvas" bindtouchstart="touchHandler_1" data-template="acc"></canvas>
+</view>
+<view class="canvas_container"  hidden="{{hiddenLoss}}">
+    <canvas canvas-id="lineCanvas_loss" disable-scroll="true" class="canvas" bindtouchstart="touchHandler_2" data-template="loss"></canvas>
+</view>
+
+
+<view class="canvas_container"  hidden="{{hiddenLr}}">
+    <canvas canvas-id="lineCanvas_lr" disable-scroll="true" class="canvas" bindtouchstart="touchHandler_3" data-template="lr"></canvas>
+</view>

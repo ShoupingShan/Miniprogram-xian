@@ -1,0 +1,127 @@
+<!--pages/analyse/analyse.wxml-->
+<view class="flex-style">
+  <view class="flex-item" bindtouchstart="goToGuest">
+    <view class='ima-block'>
+      <image src="../../../images/guest_admin1.png" class='tag_images' mode='cover'></image>
+      <text class='jump_txt'>访客统计</text>
+    </view>
+  </view>
+  <view class="flex-item" bindtouchstart="goToModel">
+    <view class='ima-block'>
+      <image src="../../../images/model_admin1.png" class='tag_images' mode='cover'></image>
+      <text class='jump_txt'>模型详情</text>
+    </view>
+  </view>
+  <view class="flex-item active" bindtouchstart="goToFeedback">
+  <view class='ima-block'>
+      <image src="../../../images/feedback_admin2.png" class='tag_images' mode='cover'></image>
+      <text class='jump_txt'>反馈记录</text>
+    </view>
+  </view>
+</view>
+
+<view class="feedback-total">
+  <view class='feedback-item'>
+    <view class="feed-title">
+      <text class="feed-title-txt">今日反馈</text>
+    </view>
+    <view class="feed-num">
+      <text class="feed-num-txt">{{feedback_todaynum}}</text>
+    </view>
+  </view>
+  <view class='feedback-item'>
+    <view class="feed-title">
+      <text class="feed-title-txt">反馈总数</text>
+    </view>
+    <view class="feed-num">
+      <text class="feed-num-txt">{{feedback_allnum}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="feedback_search">
+<view class='query_list'  bindtap='bind_feedback_all'>
+    <view class='image-icon'>
+      <image src="../../../images/search_all.png" class='image-icon-ima'></image>
+    </view>
+    <view class='image-disc' >
+      <text class='image-disc-txt'>反馈信息统计</text>
+    </view>
+  </view>
+  <view class='query_list' bindtap='bind_feedback_user'>
+    <view class='image-icon' >
+      <image src="../../../images/search_by_user.png" class='image-icon-ima'></image>
+    </view>
+    <view class='image-disc' >
+      <text class='image-disc-txt'>按用户名查询</text>
+    </view>
+  </view>
+  <view class='query_list' bindtap='bind_feedback_time'>
+    <view class='image-icon'>
+      <image src="../../../images/search_by_time.png" class='image-icon-ima'></image>
+    </view>
+    <view class='image-disc' >
+      <text class='image-disc-txt'>按照时间查询</text>
+    </view>
+  </view>
+  
+</view>
+
+<modal class='modal_feedback' hidden="{{hiddenfeedback_user}}" title="按用户名查找" confirm-text="提交" cancel-text="取消" bindcancel="cancel_user" bindconfirm="confirm_user">
+    <input type='text'placeholder="请输入查找的用户名" auto-focus value="{{user_feedback_txt}}" bindinput="user_feedback_txt"/>  
+</modal>
+<modal class='modal_feedback' hidden="{{hiddenfeedback_time}}" title="按时间查找（/天）" confirm-text="提交" cancel-text="取消" bindcancel="cancel_time" bindconfirm="confirm_time">
+    <input type='text'placeholder="请输入查找天数" auto-focus value="{{time_feedback_txt}}" bindinput="time_feedback_txt"/>  
+</modal>
+
+<view class="canvas_container" hidden="{{hidden_statistic}}">
+      <canvas canvas-id="lineCanvas_date" disable-scroll="true" class="canvas" bindtouchstart="touchHandler_1" data-template="acc"></canvas>
+</view>
+<view class="canvas_container" hidden="{{hidden_statistic}}">
+      <canvas canvas-id="lineCanvas_user" disable-scroll="true" class="canvas" bindtouchstart="touchHandler_2" data-template="acc"></canvas>
+</view>
+<view class="search_by_time_title" hidden="{{hidden_user_info}}">
+  <text class="search_by_time_txt">'{{user_name_save}}'搜索结果：</text>
+  <view class='peonySearch-image' wx:for="{{searchList_user}}" wx:key="item">
+    <view class="peonySearch-image_item"  data-template="{{item.id}}" >
+      <view class='image-item' data-template="{{item.id}}">
+        <image src='{{item.coverImageUrl}}' lazy-load="true" binderror="errorFunction_user" data-errorimg="{{item.id}}"></image>
+      </view>
+      <view class="image-item_name">
+        
+        <view class='temp_time'>
+          <text class='image-item_name_time'>模型预测：{{item.prediction}}</text>
+        </view>
+        <view class='temp_time_feedback'>
+          <text class='image-item_name_time'>用户反馈：{{item.feedback}}</text>
+        </view>
+        <view class='temp_txt'>
+          <text class='image-item_name_text'>{{item.user}}上传于{{item.time}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="search_by_time_title" hidden="{{hidden_time_info}}">
+  <text class="search_by_time_txt">按照时间搜索结果：</text>
+  <view class='peonySearch-image' wx:for="{{searchList_time}}" wx:key="item">
+    <view class="peonySearch-image_item"  data-template="{{item.id}}" >
+      <view class='image-item' data-template="{{item.id}}">
+        <image src='{{item.coverImageUrl}}' lazy-load="true"  binderror="errorFunction_time" data-errorimg="{{item.id}}"></image>
+      </view>
+      <view class="image-item_name">
+        
+        <view class='temp_time'>
+          <text class='image-item_name_time'>模型预测：{{item.prediction}}</text>
+        </view>
+        <view class='temp_time_feedback'>
+          <text class='image-item_name_time'>用户反馈：{{item.feedback}}</text>
+        </view>
+        <view class='temp_txt'>
+          <text class='image-item_name_text'>{{item.user}}上传于{{item.time}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

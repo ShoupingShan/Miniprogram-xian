@@ -15,6 +15,10 @@ Page({
     uploadResultImg: '',// 用户上传的图片
     peonyResultTimes: '',
     peonyLocation:'', //拍摄地点
+    hiddenfeedback: true,
+    feedback_txt:'',
+    feedback:'',
+    feedback_item: -1,
   },
 
   /**
@@ -84,6 +88,69 @@ Page({
     })
   },
 
+  bind_feedback(e) {
+    var that = this;
+    that.setData({
+      feedback_item: e.currentTarget.dataset.template,
+      hiddenfeedback: !that.data.hiddenfeedback,
+    }
+    )
+  },
+  //取消按钮
+  cancel: function () {
+    this.setData({
+      "feedback_txt": '请输入正确类别',
+      hiddenfeedback: true,
+    });
+  },
+  feedback_txt: function(e){
+    var that = this
+    that.setData({
+      feedback: e.detail.value
+    })
+  },
+  //确认
+  confirm: function () {
+    var that = this
+
+    wx.request({
+      url: app.globalData.url + '/feedback',
+      data: {
+        userId: app.globalData.userInfo.nickName,
+        prediction: that.data.peonyResultname,
+        name: that.data.feedback_item,
+        user_feedback: that.data.feedback,
+      },
+      success: function (res) {
+        if (res.data.code == "1000") {
+          wx.showToast({
+            title: '感谢反馈',
+            duration: 1000
+          })
+        } else {
+          wx.showToast({
+            title: '反馈失败',
+            image: '../../images/shiban.png',
+            duration: 1000
+          })
+        }
+      },
+      fail: function (err) {
+        wx.showToast({
+          title: '服务器错误',
+          duration: 1000,
+          image: '../../images/shiban.png'
+        })
+        setTimeout(function () {
+          wx.hideToast()
+        }, 1000)
+      }
+    })
+    this.setData({
+      "feedback_txt": '请输入正确类别',
+      hiddenfeedback: true
+    })
+  },
   // 产看周边
   searchNeighbor(e) {
     var refer = {

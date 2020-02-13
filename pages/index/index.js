@@ -69,6 +69,16 @@ Page({
       })
     }
   },
+  onShow(){
+    if(this.data.hasUserInfo){
+      setTimeout(function () {
+        wx.reLaunch({
+          url: '../peonyHomePage/peonyHomePage'
+        })
+      }, 100) //自动跳转延时设置
+    }
+
+  },
   getUserInfo: function (e) {
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
@@ -81,6 +91,7 @@ Page({
     console.log('跳转成功')
     wx.reLaunch({
       url: '../peonyHomePage/peonyHomePage'
+      // url: '../analyse/analyse'
     })
   }
   

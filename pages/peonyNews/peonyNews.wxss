@@ -1,0 +1,107 @@
+/* pages/peonyDetails/peonyDetails.wxss */
+@import "../peonyNoNetwork/peonyNoNetwork.wxss";
+page {
+  height: 100%;
+}
+
+.peonyDetails-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.Details-name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.Details-cate{
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-size: 38rpx;
+  /* line-height: 88rpx; */
+  height: 68rpx;
+  text-align: center;
+  color: #000;
+  /* border-bottom: 1px solid #ccc; */
+}
+
+.Details-typeName {
+  text-align: center;
+}
+.Details-time {
+  width: 60%;
+  padding-left: 40%;
+  /* box-sizing: border-box;
+  overflow: hidden;
+  
+  line-height: 88rpx;
+  text-align: center;
+  height: 40rpx; */
+  font-size: 28rpx; 
+  color:#ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.Details-intro {
+  padding-top: 20rpx;
+  width: 100%;
+  height: 75rpx;
+  overflow: hidden;
+  line-height: 75rpx;
+  padding-left: 21rpx;
+  box-sizing: border-box;
+  font-size: 31rpx;
+}
+
+
+
+/* 富文本编辑器 */
+.Details-content {
+  overflow: auto;
+  width: 100%;
+  padding-right:21rpx; 
+  padding-left: 21rpx;
+  padding-bottom: 35rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+
+
+/*凹槽宽度*/
+/* .Details-content::-webkit-scrollbar {
+  width: 8rpx;
+  height: 8rpx;
+} */
+
+/*拖动条*/
+
+/* .Details-contentnt::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 6rpx;
+} */
+
+/*背景槽*/
+
+/* .Details-content::-webkit-scrollbar-track {
+  background-color: #ddd;
+  border-radius: 6rpx;
+} */
+
+::-webkit-scrollbar{
+width: 0;
+height: 0;
+color: transparent;
+ /* display: none; */
+}
+/* page { overflow: -moz-scrollbars-none; }
+page { -ms-overflow-style: none; }
+page::-webkit-scrollbar { width: 0 !important }
+.peonyDetails-container  { overflow: -moz-scrollbars-none; }
+.peonyDetails-container  { -ms-overflow-style: none; }
+.peonyDetails-container ::-webkit-scrollbar { width: 0 !important } */
+

@@ -59,7 +59,7 @@ Page({
           choosenLongitude = markersData[0].longitude
         }else{
           wx.showToast({
-            title: '未查找到相关信息',
+            title: '未找到相关信息',
             duration: 1000
           })
         }

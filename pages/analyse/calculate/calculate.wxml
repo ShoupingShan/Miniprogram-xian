@@ -1,0 +1,24 @@
+<!--pages/analyse/analyse.wxml-->
+<view class="flex-style">
+  <view class="flex-item" bindtouchstart="goToGuest">
+  <view class='ima-block'>
+      <image src="../../../images/guest_admin2.png" class='tag_images' mode='cover'></image>
+      <text class='jump_txt'>访客统计</text>
+    </view>
+  </view>
+  <view class="flex-item" bindtouchstart="goToModel">
+    <view class='ima-block'>
+      <image src="../../../images/model_admin1.png" class='tag_images' mode='cover'></image>
+      <text class='jump_txt'>模型详情</text>
+    </view>
+  </view>
+  <view class="flex-item active" bindtouchstart="goToFeedback">
+  <view class='ima-block'>
+      <image src="../../../images/feedback_admin1.png" class='tag_images' mode='cover'></image>
+      <text class='jump_txt'>反馈记录</text>
+    </view>
+  </view>
+</view>
+<view class='title'>
+  <text>TODO</text>
+</view>

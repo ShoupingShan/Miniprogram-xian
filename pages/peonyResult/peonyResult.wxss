@@ -178,7 +178,13 @@ color: #666666;
 .peonyInfo-names_text {
   margin-left: 15rpx;
 }
-.intro-text {
+.intro-text{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.brief-intro {
   width: 100%;
   box-sizing: border-box;
   font-size: 31rpx;

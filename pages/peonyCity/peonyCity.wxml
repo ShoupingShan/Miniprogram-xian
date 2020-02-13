@@ -1,0 +1,56 @@
+<!--pages/peonySearch/peonySearch.wxml-->
+<import src="../peonyNoNetwork/peonyNoNetwork.wxml" />
+<view class="peonySearch-container" wx:if="{{judgeNetWork}}">
+  <!-- 搜索栏显示 -->
+  <view class='searchBox'>
+    <input type='text' bindinput="inputVal" placeholder='发现西安' value='{{searchVal}}' class='searchInp' bindblur='blurSearch'></input>
+    <image src='../../images/search-icon.png' class='searchIcon'></image>
+    <text class='cancelSearch' bindtap='cancelSearch'>取消</text>
+  </view>
+  <!-- 搜索结果 -->
+  <!-- <movable-area style="pointer-events: none;height: 50px;width: 50px;position:absolute;left:550rpx;top:950rpx;">
+  	<movable-view direction="all" style="pointer-events: auto;height: 50px; width: 50px; background: blue;">
+	  <image src='../../images/refresh.png' class="imgStyle"></image>
+	</movable-view>
+</movable-area> -->
+
+  <view class='empty'></view>
+  <view class='peonySearch-image' wx:if="{{isJudge}}" wx:for="{{searchList}}" wx:key="item">
+    <view class="peonySearch-image_item"  bindtap='detailsPeony' data-template="{{item.id}}" >
+      <view class="image-item_name">
+        <view class='temp_txt'>
+          <text class='image-item_name_text'>{{item.name}}</text>
+        </view>
+        <view class='temp_time'>
+          <text class='image-item_name_time'>{{item.webpage}}   {{item.time}}</text>
+        </view>
+      </view>
+      <view class='image-item' data-template="{{item.id}}">
+        <image src='{{item.coverImageUrl}}' lazy-load="true"   binderror="errorFunction" data-errorimg="{{item.id}}"></image>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{isJudge}}">
+    <view class="loadmore loading" wx:if="{{hasMore && searchList.lenght>6}}">正在加载...</view>
+    <view class="loadmore" wx:if="{{!hasMore && searchList.length>10 }}">已经显示全部数据</view>
+  </view>
+  <view class='judgeSearch' wx:if="{{!isJudge}}"  wx:for="{{searchResult}}" wx:key="item">
+    <view class="peonySearch-image_item"  bindtap='detailsPeony' data-template="{{item.id}}">
+      <view class="image-item_name">
+        <view class='temp_txt'>
+          <text class='image-item_name_text'>{{item.name}}</text>
+        </view>
+        <view class='temp_time'>
+          <text class='image-item_name_time'>{{item.time}}</text>
+        </view>
+      </view>
+      <view class='image-item' data-template="{{item.id}}">
+        <image src='{{item.coverImageUrl}}'></image>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 判断有误网络状态 -->
+<view class='PeonyPublicNetWork' wx:if="{{!judgeNetWork}}">
+  <template is="penonyNoNetWork" />
+</view>

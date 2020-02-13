@@ -3,7 +3,7 @@
 <import src="../peonyNoNetwork/peonyNoNetwork.wxml" />
 <view class='peonyDetails-container' wx:if="{{judgeNetWork}}" id='peonyDetails'>
   <view class='Details-img'>
-    <image src='{{peonyDetailsImg}}'  bindtap='echoDisplay'></image>
+    <image src='{{peonyDetailsImg}}'  bindtap='echoDisplay'  lazy-load="true"></image>
   </view>
   <view class='Details-name'>
     <!-- 获取Top1类标 -->

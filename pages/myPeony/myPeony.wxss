@@ -12,7 +12,17 @@ page {
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
 }
-
+.moveBtn{
+  align-items: center;
+  background: #80cfbc;
+  /* background: #d4237a; */
+}
+.btnImg{
+  width: 35px;
+  height: 35px;
+  padding-left: 15rpx;
+  padding-top: 12rpx;
+}
 /* 头像盒子 */
 
 .headPortraitBox {
@@ -200,7 +210,7 @@ transform: translateX(0);
   font-weight: normal;
 }
 
-/* 设置牡丹花名称的文字 */
+/* 设置名称的文字 */
 
 .item-Infoname_text {
   margin-left: 15rpx;

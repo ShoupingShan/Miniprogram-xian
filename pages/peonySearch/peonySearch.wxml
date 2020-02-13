@@ -11,7 +11,7 @@
   <view class='peonySearch-image' wx:if="{{isJudge}}">
     <view class="peonySearch-image_item" wx:for="{{searchList}}" wx:key="item">
       <view class='image-item' data-template="{{item.id}}" bindtap='detailsPeony'>
-        <image src='{{item.coverImageUrl}}'></image>
+        <image src='{{item.coverImageUrl}}'  lazy-load="true"></image>
       </view>
       <view class="image-item_name">{{item.name}}</view>
     </view>
@@ -23,7 +23,7 @@
   <view class='judgeSearch' wx:if="{{!isJudge}}">
     <view class="peonySearch-image_item" wx:for="{{searchResult}}" wx:key="item">
       <view class='image-item' data-template="{{item.id}}" bindtap='detailsPeony'>
-        <image src='{{item.coverImageUrl}}'></image>
+        <image src='{{item.coverImageUrl}}'  lazy-load="true" ></image>
       </view>
       <view class="image-item_name">{{item.name}}</view>
     </view>

@@ -23,11 +23,11 @@ page {
 }
 
 .peonyHomePage-flower_item {
-  height: 650rpx;
+  /* height: 650rpx; */
   width: 665rpx;
   margin: 0 auto;
   margin-top: 140rpx;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .flower-image {

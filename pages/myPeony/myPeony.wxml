@@ -25,7 +25,7 @@
       <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{peonyList}}"  wx:key="item" wx:for-item="item">
         <view class='recordInformation-item' bindtap="selHistorical" data-item="{{index}}">
           <view class='recordInformation-item_image'>
-            <image src='{{item.shotImage}}' mode='cover'></image>
+            <image src='{{item.shotImage}}' mode='cover'  lazy-load="true"  binderror="errorFunction" data-errorimg="{{index}}"></image>
           </view>
           <view class='recordInformation-item_info'>
             <view class='item-Infoname'>
@@ -48,6 +48,10 @@
     </scroll-view>
   </view>
 </view>
+<view class="moveBtn" hidden="{{hiddenadmin}}" catchtap="clickBtn" catchtouchmove="buttonMove" bindtouchstart="buttonStart" bindtouchend="buttonEnd" style="top:{{buttonTop}}px;left:{{buttonLeft}}px;width: 50px;height:50px;border-radius:80px;position:fixed;line-height:50px;font-size:25pt;color:#fff;">
+  <image class='btnImg' src='../../images/curve.png'></image>
+</view>
+
 <!-- 判断有无网络 -->
 <view class='PeonyPublicNetWork' wx:if="{{!judgeNetWork}}">
   <template is="penonyNoNetWork" />

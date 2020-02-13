@@ -29,11 +29,15 @@
     <view class="object" id="object_eight"></view>
     <view class="object" id="object_big"></view>
   </view>
+  
   <!-- 上传信息 -->
   <view class='selectImgText' wx:if="{{!isShow}}">
     <text style='color:#d4237a;'>拼命加载中<text  class="dotting"></text></text>
   </view>
 </view>
+
+
+
 <!-- 有无网络判断 -->
 <view class='PeonyPublicNetWork' wx:if="{{!judgeNetWork}}">
   <template is="penonyNoNetWork" />

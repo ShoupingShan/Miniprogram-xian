@@ -4,7 +4,6 @@ const app = getApp();
 var amapFile = require('../../libs/amap-wx.js');
 // var qqmap = require('../../utils/qqmap-wx-jssdk.min.js')
 
-
 Page({
 
   /**
@@ -16,7 +15,7 @@ Page({
     isShow: true,
     hasUserInfo: false,
     tempFilePath: '../../images/camera.png',
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
 
   //获取相机功能 上传图片
@@ -244,7 +243,7 @@ Page({
       isShow: true
     })
   },
-
+  
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -278,7 +277,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '浑水摸鱼-最西安'
+      title: '浑水摸鱼-醉长安'
     }
   }
 })
