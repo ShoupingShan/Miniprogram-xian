@@ -28,6 +28,7 @@ Page({
     windowHeight: '',
     windowWidth: '',
     hiddenadmin:true,
+    hasUserInfo:false,
   },
   //利用正则截取字符串
   matchReg: function matchReg(str) {
@@ -325,8 +326,10 @@ Page({
           })
         } else {
           // _this.refreshBtn();
+          var flag = app.globalData.userInfo.nickName != 'None'
           _this.setData({
-            judgeNetWork: true
+            judgeNetWork: true,
+            hasUserInfo: flag,
           })
           _this.loadMore();
           wx.getSystemInfo({
@@ -360,7 +363,16 @@ Page({
  
    
   },
-
+  getUserInfo: function (e) {
+    app.globalData.userInfo = e.detail.userInfo
+    // var flag = app.globalData.userInfo == 'None'
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true,
+      // has_user_name: app.globalData.userInfo,
+    })
+    this.onShow()
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

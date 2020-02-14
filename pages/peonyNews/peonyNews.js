@@ -16,6 +16,7 @@ Page({
     peonyDetailsweb:'',
     detailsShow: true, //控制页面显示
     detailsId:-1,
+    article_content:'',
   },
 
   /**
@@ -30,8 +31,6 @@ Page({
     var query = wx.createSelectorQuery();
     query.select('#peonyDetails').boundingClientRect(function(rect) {
       var height = rect.height;
-      //console.log(rect.width)
-      //console.log(rect.height);
       wx.getSystemInfo({
         success: function(res) {
           that.setData({
@@ -93,13 +92,17 @@ Page({
       success: function (res) {
         //console.log(res);
         if (res.data.code == "1000") {
+          var article_content = res.data.data.content
+          article_content.replace(/<img/gi, '<img style="max-width:100%;height:auto;display:block" ');
           that.setData({
             peonyDetailsImg: res.data.data.coverImageUrl,
             peonyDetailsname: res.data.data.name,
             peonyDetailscate: res.data.data.time,
             peonyDetailsweb: res.data.data.webpage,
+            article_content:article_content,
           })
-          var temp = WxParse.wxParse('article', 'html', res.data.data.content, that)
+          
+          // var temp = WxParse.wxParse('article', 'md', res.data.data.content, that)
         }
       },
       fail: function (err) {
@@ -171,7 +174,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '浑水摸鱼-最西安'
+      title: '浑水摸鱼-西安瞰点'
     }
   }
 })

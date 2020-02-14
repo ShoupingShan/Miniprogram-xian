@@ -1,7 +1,6 @@
 // pages/peonyResult/peonyResult.js
 const app = getApp();
 var utils = require('../../utils/util.js');
-var WxParse = require('../../wxParse/wxParse.js');
 Page({
 
   /**
@@ -23,6 +22,7 @@ Page({
     feedback_txt:'',
     feedback:'',
     feedback_item: -1,
+    article_content:'',
   },
 
   /**
@@ -46,19 +46,11 @@ Page({
         },
       })
     }).exec();
-    // wx.getSystemInfo({
-    //   success: function (res) {
-    //     console.log("height:" + res.screenHeight);
-    //     console.log('width:' + res.screenWidth);
-    //     that.setData({
-    //       height: res.screenHeight,
-    //       scrollHeight: res.screenHeight - res.screenWidth / 750 * 581,
-    //     })
-    //   },
-    // })
     var infoAll = JSON.parse(app.globalData.peonyResultInfo);
     console.log(infoAll.cam)
     console.log(app.globalData.uploadImg);
+    var article_content = infoAll.content
+    article_content.replace(/<img/gi, '<img style="max-width:100%;height:auto;display:block" ');
     that.setData({
       peonyResultname: infoAll.state ? infoAll.predictions[0].label:"暂无数据",
       peonyResultScore: infoAll.state ? infoAll.predictions[0].probability : "暂无数据",
@@ -67,9 +59,9 @@ Page({
       softmax:infoAll.predictions,
       uploadResultImg: app.globalData.uploadImg,
       peonyResultTimes: infoAll.createTime ? utils.getTime(infoAll.createTime) : utils.getTime(new Date),
-      peonyLocation: app.globalData.peonyLocation ? app.globalData.peonyLocation:"暂无数据"
+      peonyLocation: app.globalData.peonyLocation ? app.globalData.peonyLocation:"暂无数据",
+      article_content: article_content,
     });
-    var temp = WxParse.wxParse('article', 'html', infoAll.content, that)
   },
   // 点击长传的图片
   clickUpload() {

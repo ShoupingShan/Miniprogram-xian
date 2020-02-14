@@ -12,10 +12,6 @@ App({
       success: res => {
         // console.log(res)
         that.globalData.codeId = res.code;
-        // console.log('登录')
-        // console.log(that.globalData)
-        //console.log(res);
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
     //正常登陆
@@ -49,7 +45,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null,
+    userInfo: 'None',
     codeId: '',
     // url: 'http://127.0.0.1:5000',
     url: 'https://hunshuimoyu.picp.vip',//服务器地址

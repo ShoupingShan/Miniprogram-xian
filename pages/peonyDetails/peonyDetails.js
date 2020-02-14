@@ -1,6 +1,5 @@
 // pages/peonyDetails/peonyDetails.js
 const app = getApp();
-var WxParse = require('../../wxParse/wxParse.js');
 Page({
 
   /**
@@ -15,6 +14,7 @@ Page({
     peonyDetailscate: '',
     detailsShow: true, //控制页面显示
     detailsId:-1,
+    article_content: '',
   },
 
   /**
@@ -94,13 +94,15 @@ Page({
       success: function (res) {
         //console.log(res);
         if (res.data.code == "1000") {
+          var article_content = res.data.data.content
+          article_content.replace(/<img/gi, '<img style="max-width:100%;height:auto;display:block" ');
           that.setData({
             peonyDetailsImg: res.data.data.coverImageUrl,
             peonyDetailsname: res.data.data.name,
             peonyDetailscate: res.data.data.cate,
             userName: app.globalData.userInfo.nickName,
+            article_content: article_content,
           })
-          var temp = WxParse.wxParse('article', 'html', res.data.data.content, that)
         }
       },
       fail: function (err) {

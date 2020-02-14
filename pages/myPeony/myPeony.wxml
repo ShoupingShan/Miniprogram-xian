@@ -8,8 +8,11 @@
     <view class="wechartNickName">
       <text>{{wechartNickName}}</text>
     </view>
-    <view class='identificationRecord'>
+    <view class='identificationRecord'  wx:if="{{hasUserInfo}}">
       <text>{{identificationRecordNum}}条记录</text>
+    </view>
+    <view class="usermotto" wx:if="{{!hasUserInfo}}">
+     <button class="get_info_btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">登陆</button>
     </view>
   </view>
   <view class='show-refresh'>
@@ -30,7 +33,7 @@
           <view class='recordInformation-item_info'>
             <view class='item-Infoname'>
               <text class='item-Infoname_names'>名称:</text>
-              <text class='item-Infoname_text'>{{item.pred_result}}</text>
+              <text class='item-Infoname_text'>{{item.softmax_prob[0].label}}</text>
             </view>
             <view class='item-data'>
               <text class='item-data_time'>时间:</text>

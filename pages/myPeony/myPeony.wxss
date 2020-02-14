@@ -256,3 +256,18 @@ width: 0;
 height: 0;
 color: transparent;
 }
+
+.get_info_btn{
+  font-size: 35rpx;
+  text-align: center;
+  line-height: 2.55555556;
+  border-radius: 5px;
+  color: #ffffff;
+  background-color: #d4237a;
+}
+
+.usermotto {
+  width: 138rpx;
+  margin-left: 305rpx;
+  margin-top: 10rpx;
+}

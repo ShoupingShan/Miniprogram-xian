@@ -52,11 +52,6 @@
             <view class="td td1">{{index}}</view>
             <view class="td td2">{{item.label}}</view>
             <view class="td td3">{{item.probability}}</view>
-            <!-- <view class='package-softmax'>
-              <view class="pred-rank">Rank: </view>
-              <view class="pred-result">{{item.label}}</view>
-              <view class="pred-prob">{{item.probability}}</view>
-            </view> -->
         </view>
       </view>
     </view>
@@ -69,21 +64,10 @@
           <view class='package-matrix-view' data-template="{{index}}" bindtap='detailsShow'>
             <image src='{{item}}' mode='cover'  lazy-load="true"></image> <!--显示训练集中最相似的图片-->
           </view>
-          <!-- <view class='matrix-imformation'>
-            <view class="pred-prob">布贴绣</view>
-            <view class="pred-prob">{{item.times}}</view>
-          </view> -->
         </view>
       </block>
     </view>
   </view>
-
-    <!-- 历史查询信息,包括prob和match matrix -->
-  <!-- <view class='content' style='height:{{scrollHeight}}px'>
-    <view class='content-template'  >
-      <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
-    </view>
-  </view> -->
 </view>
 <!-- 判断有无网络 -->
 <view class='PeonyPublicNetWork' wx:if="{{!judgeNetWork}}">

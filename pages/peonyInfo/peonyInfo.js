@@ -20,6 +20,7 @@ Page({
     hiddenfeedback: true,
     feedback_txt: '',
     feedback: '',
+    article_content: '',
   },
 
   /**
@@ -90,10 +91,11 @@ Page({
         userName: app.globalData.userInfo.nickName
       },
       success: function (res) {
-        console.log(res);
+        var article_content = res.data.data.content
+        article_content.replace(/<img/gi, '<img style="max-width:100%;height:auto;display:block" ');
         if (res.data.code == '1000') {
           that.setData({
-            peonyname: res.data.data.pred_result, //查询的结果名称
+            peonyname: res.data.data.softmax_prob[0].label, //查询的结果名称
             coverImg: res.data.data.cam, //查询图片的的cam图
             uploadImg: res.data.data.sourceImage, //上传图片的缩略图
             peonyTimes: utils.getTime(res.data.data.createTime), //查询时间
@@ -101,8 +103,8 @@ Page({
             softmax: res.data.data.softmax_prob,
             matrix: res.data.data.match_images,
             cosine: res.data.data.match_times,
+            article_content: article_content,
           })
-          var temp = WxParse.wxParse('article', 'html', res.data.data.content, that)
         }
       },
       fail: function (err) {

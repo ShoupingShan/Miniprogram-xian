@@ -1,19 +1,20 @@
 <!--index.wxml-->
-<view class="container">
+<view class="container_index">
+  <image class="background_index" src='../../images/index_bg.png'></image>
   <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:if="{{!hasUserInfo && canIUse}}">
+      <image  class="userinfo-fish" src="../../images/fish.png" mode="cover"></image>
+      <button class="get_info_btn" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称</button>
+    </block>
+    
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <view class="info_btn_blk"></view>
     </block>
   </view>
-  <!-- <view class='jump' bindtap="jumpPage">
-    <span> 进入</span>
-  </view> -->
-  
-  <view class="usermotto" >
-  <button type="default"  bindtap="jumpPage"
-        hover-class="other-button-hover" class="margin-button"> {{motto}} </button>
-    <!-- <text class="user-motto">{{motto}}</text> -->
+
+  <view class="usermotto" wx:if="{{hasUserInfo}}">
+    <button class="jump_to_btn"  bindtap="jumpPage"> 瞰见西安</button>
   </view>
 </view>

@@ -29,7 +29,6 @@
   <view class='peonyLabel-Prob'>
     <!-- 获取Top1类标 -->
     <view class='peonyInfo-names'>
-      <text>预测结果:</text>
       <text class='peonyInfo-names_text'>{{peonyResultname}}</text>
     </view>
     <view class='peonyInfo-names'>
@@ -104,7 +103,7 @@
   <!-- 显示百度百科 -->
   <view class='content' hidden="{{hiddenBaike}}" style='height:{{scrollHeight}}px'>
     <view class='content-template'>
-      <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+      <rich-text nodes="{{article_content}}"></rich-text>
     </view>
   </view>
 </view>

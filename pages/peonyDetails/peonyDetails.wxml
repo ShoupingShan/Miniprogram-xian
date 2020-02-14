@@ -28,7 +28,7 @@
   </view> -->
   <view class='Details-content' style='height:{{scrollHeight}}px;'>
     <view class='content-template'>
-      <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+      <rich-text nodes="{{article_content}}"></rich-text>
     </view>
   </view>
 </view>

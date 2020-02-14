@@ -43,7 +43,7 @@ Page({
             if (res.networkType == "none") {
               _this.setData({
                 tempFilePath: '../../images/camera.png',
-                isShow: true,
+                isShow: false,
                 judgeNetWork: false
               })
             } else {
@@ -82,7 +82,7 @@ Page({
                           isShow: true
                         })
                         wx.showToast({
-                          title: '暂无数据',
+                          title: '识别失败',
                           image: '../../images/shiban.png',
                           duration: 1000
                         })
@@ -120,6 +120,7 @@ Page({
                 clearTimeout(uploadId);
               }, 30000);
             }
+
           },
         })
       }

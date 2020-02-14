@@ -1,22 +1,65 @@
 /**index.wxss**/
+
 .userinfo {
   display: flex;
   flex-direction: column;
   align-items: center;
-  -webkit-overflow-scrolling: touch
+  -webkit-overflow-scrolling: touch;
+  margin-top: 290rpx;
 }
 
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
+  width: 208rpx;
+  height: 208rpx;
   margin: 20rpx;
   border-radius: 50%;
 }
-
+.userinfo-fish{
+  width: 208rpx;
+  height: 208rpx;
+  margin: 100rpx;
+  border-radius: 50%;
+}
+.get_info_btn{
+  font-size: 35rpx;
+  text-align: center;
+  line-height: 2.55555556;
+  border-radius: 5px;
+  color: #ffffff;
+  background-color: #d4237a;
+  margin-top: 20rpx;
+}
+.info_btn_blk{
+  margin-top: 230rpx;
+}
+.usermotto {
+  width: 258rpx;
+  margin-top: 40rpx;
+  margin-left: 246rpx;
+}
+.jump_to_btn{
+  font-size: 35rpx;
+  text-align: center;
+  line-height: 2.55555556;
+  border-radius: 5px;
+  color: #ffffff;
+  background-color: #eb3c70;
+}
 .userinfo-nickname {
   color: #aaa;
+  font-size: 35rpx;
 }
 
-.usermotto {
-  margin-top: 200px;
+.container_index{
+  height: 100%;
+  width: 100%;
+}
+.background_index{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  height:100%;
+  width: 100%;
+  z-index: -999;
 }
