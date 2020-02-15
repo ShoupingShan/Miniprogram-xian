@@ -112,7 +112,7 @@ Page({
         wx.showToast({
           title: '服务器错误',
           duration: 1000,
-          image: '../../images/shiban.png'
+          image: '../../images/donotfind.png'
         })
         setTimeout(function () { wx.hideToast() }, 1000)
       }
@@ -241,7 +241,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '浑水摸鱼-最西安'
+      title: '浑水摸鱼-西安瞰点'
     }
   }
 })

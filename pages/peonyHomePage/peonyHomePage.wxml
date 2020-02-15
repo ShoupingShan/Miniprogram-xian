@@ -32,7 +32,7 @@
   
   <!-- 上传信息 -->
   <view class='selectImgText' wx:if="{{!isShow}}">
-    <text style='color:#d4237a;'>拼命加载中<text  class="dotting"></text></text>
+    <text style='color:#d4237a;'>时间较长，拼命加载中<text  class="dotting"></text></text>
   </view>
 </view>
 

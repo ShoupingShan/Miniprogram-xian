@@ -4,7 +4,8 @@
   display: -webkit-flex;
   display: flex;
   -webkit-overflow-scrolling: touch;
-  height:40px;
+  height:80rpx;
+  width:100%
 }
 .jump_txt{
   height: 30px;
@@ -21,8 +22,7 @@
 }
 .ima-block{
   margin-left: 30px;
-  height: 40px;
-  width: 80px;
+  width: 180rpx;
   text-align: center;
   -webkit-box-flex: 1;
   flex-direction: row;
@@ -52,7 +52,7 @@
 } 
 
 .canvas_container {
-    height: 40%;
+    height: 65%;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -217,11 +217,16 @@
   font-family: "Microsoft YaHei";
 }
 
-.search_by_time_title{
-  /* height:40%; */
-}
 .search_by_time_txt{
   margin-left: 20rpx;
   font-size: 25rpx;
   color:#ccc;
+}
+
+.result-scope{
+  height:818rpx;
+  width:100%
+}
+.empty_roll{
+  height:60rpx;
 }

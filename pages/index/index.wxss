@@ -43,7 +43,7 @@
   line-height: 2.55555556;
   border-radius: 5px;
   color: #ffffff;
-  background-color: #eb3c70;
+  background-color: #d4237a;
 }
 .userinfo-nickname {
   color: #aaa;

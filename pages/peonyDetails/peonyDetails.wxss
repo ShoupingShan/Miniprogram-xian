@@ -24,7 +24,7 @@ page {
   align-items: center;
   justify-content: center;
 }
-.Details-cate{
+.Details-cate-label{
   width: 40%;
   padding-left: 25rpx;
   box-sizing: border-box;
@@ -35,10 +35,21 @@ page {
   color: #000;
   border-bottom: 1px solid #ccc;
 }
-
-.neighbor1{
-  width:15%;
+.Details-cate{
+  width: 30%;
   padding-left: 25rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-size: 28rpx;
+  line-height: 88rpx;
+  height: 88rpx;
+  color: #000;
+  border-bottom: 1px solid #ccc;
+}
+.neighbor1{
+  width:25%;
+  padding-left: 25rpx;
+  flex-direction: row;
   box-sizing: border-box;
   height: 88rpx;
   /* padding-left: 21rpx; */
@@ -49,6 +60,11 @@ page {
   margin-top: 20rpx;
   height: 55rpx;
   width: 65rpx;
+}
+.neightbor_txt{
+  font-size: 20rpx;
+   color:#ccc;
+   margin-left: 4rpx;
 }
 .Details-typeName {
   margin-left: 15rpx;

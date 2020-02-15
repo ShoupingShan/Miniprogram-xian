@@ -44,16 +44,16 @@ Page({
               _this.setData({
                 tempFilePath: '../../images/camera.png',
                 isShow: false,
-                judgeNetWork: false
+                judgeNetWork: false,
               })
             } else {
               _this.setData({
                 judgeNetWork: true,
                 isShow: false,
-                tempFilePath: tempFilePath
+                tempFilePath: tempFilePath,
               })
               //上传服务器地址进行识别   
-              timeId = setTimeout(function() {
+              timeId = setTimeout(function(){
                 requestTask = wx.uploadFile({
                   url: app.globalData.url + '/classification',
                   filePath: tempFilePath,
@@ -83,19 +83,19 @@ Page({
                         })
                         wx.showToast({
                           title: '识别失败',
-                          image: '../../images/shiban.png',
+                          image: '../../images/donotfind.png',
                           duration: 1000
                         })
                         setTimeout(function() {
                           wx.hideToast()
-                        }, 10000);
+                        }, 1000);
                       }
                     }
                   },
                   fail: function(err) {
                     wx.showToast({
                       title: '服务器繁忙',
-                      image: '../../images/shiban.png',
+                      image: '../../images/donotfind.png',
                       duration: 1000
                     })
                     setTimeout(function() {
@@ -107,7 +107,7 @@ Page({
                     }, 1000)
                   }
                 })
-              }, 1000)
+              }, 100)
               //30s 未能识别该种类 就返回首页
               uploadId = setTimeout(function() {
                 requestTask.abort();
@@ -120,7 +120,6 @@ Page({
                 clearTimeout(uploadId);
               }, 30000);
             }
-
           },
         })
       }
@@ -218,7 +217,17 @@ Page({
         }
       })
     }
-
+    wx.showModal({
+      title: '温馨提示',
+      content: '小程序目前仅支持比赛中规定的西安热门景点、美食、特产、民俗、工艺品等图片识别，详情参见探索页面',
+      success: function (res) {
+        if (res.confirm) {
+          // console.log('用户点击确定')
+        } else if (res.cancel) {
+          // console.log('用户点击取消')
+        }
+      }
+    })  
   },
   getUserInfo: function(e) {
     app.globalData.userInfo = e.detail.userInfo
@@ -239,10 +248,13 @@ Page({
    */
   onShow: function() {
     var that = this;
-    that.setData({
+    if (that.data.isShow == false){
+       that.setData({
       tempFilePath: '../../images/camera.png',
       isShow: true
     })
+    }
+  
   },
   
   /**
@@ -278,7 +290,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '浑水摸鱼-醉长安'
+      title: '浑水摸鱼-西安瞰点'
     }
   }
 })

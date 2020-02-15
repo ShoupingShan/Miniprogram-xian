@@ -225,7 +225,7 @@ Page({
         } else {
           wx.showToast({
             title: '获取失败',
-            image: '../../images/shiban.png',
+            image: '../../../images/donotfind.png',
             duration: 1000
           })
         }
@@ -234,7 +234,7 @@ Page({
         wx.showToast({
           title: '服务器错误',
           duration: 1000,
-          image: '../../images/shiban.png'
+          image: '../../../images/donotfind.png'
         })
         setTimeout(function () {
           wx.hideToast()
@@ -263,5 +263,12 @@ Page({
     })
   },
 
-  
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    return {
+      title: '浑水摸鱼-西安瞰点'
+    }
+  }
 })

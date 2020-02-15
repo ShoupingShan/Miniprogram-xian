@@ -68,7 +68,7 @@ Page({
           } catch (e) {
             console.error('getSystemInfoSync failed!');
           }
-          var canvas_height = 200;
+          var canvas_height = 250;
 
           if (this.data.date_cate){
             var date_times = this.data.date_times;
@@ -145,7 +145,7 @@ Page({
         } else {
           wx.showToast({
             title: '获取失败',
-            image: '../../images/shiban.png',
+            image: '../../../images/donotfind.png',
             duration: 1000
           })
         }
@@ -154,7 +154,7 @@ Page({
         wx.showToast({
           title: '服务器错误',
           duration: 1000,
-          image: '../../images/shiban.png'
+          image: '../../../images/donotfind.png'
         })
         setTimeout(function () {
           wx.hideToast()
@@ -246,7 +246,7 @@ Page({
           } catch (e) {
             console.error('getSystemInfoSync failed!');
           }
-          var canvas_height = 200;
+          var canvas_height = 250;
           if (that.data.date_cate){
             var date_times = this.data.date_times;
             var cate = this.data.date_cate;
@@ -323,7 +323,7 @@ Page({
         } else {
           wx.showToast({
             title: '获取失败',
-            image: '../../images/shiban.png',
+            image: '../../../images/donotfind.png',
             duration: 1000
           })
         }
@@ -332,7 +332,7 @@ Page({
         wx.showToast({
           title: '服务器错误',
           duration: 1000,
-          image: '../../images/shiban.png'
+          image: '../../../images/donotfind.png'
         })
         setTimeout(function () {
           wx.hideToast()
@@ -373,7 +373,7 @@ Page({
           } catch (e) {
             console.error('getSystemInfoSync failed!');
           }
-          var canvas_height = 200;
+          var canvas_height = 250;
 
           if (that.data.date_cate){
             var date_times = this.data.date_times;
@@ -451,7 +451,7 @@ Page({
         } else {
           wx.showToast({
             title: '获取失败',
-            image: '../../images/shiban.png',
+            image: '../../../images/donotfind.png',
             duration: 1000
           })
         }
@@ -460,7 +460,7 @@ Page({
         wx.showToast({
           title: '服务器错误',
           duration: 1000,
-          image: '../../images/shiban.png'
+          image: '../../../images/donotfind.png'
         })
         setTimeout(function () {
           wx.hideToast()
@@ -494,4 +494,12 @@ Page({
       })
     }
   },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    return {
+      title: '浑水摸鱼-西安瞰点'
+    }
+  }
 })

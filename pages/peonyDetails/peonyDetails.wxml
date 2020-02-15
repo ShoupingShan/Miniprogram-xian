@@ -10,11 +10,12 @@
     <view class='Details-cate'>
       <text class='Details-text'>{{peonyDetailscate}}</text>
     </view>
-    <view class='Details-cate'>
+    <view class='Details-cate-label'>
       <text class='Details-typeName'>{{peonyDetailsname}}</text>
     </view>
     <view class='neighbor1' data-template="{{peonyDetailscate + '/' + peonyDetailsname}}" bindtap='searchNeighbor'>
       <image src="../../images/neighbor.png" class='neighbor'></image>
+      <text class='neightbor_txt' >试试周边</text>
     </view>
 
     <!-- <text class='Details-text'>{{peonyDetailscate}}</text>

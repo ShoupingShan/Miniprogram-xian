@@ -1,6 +1,5 @@
 // pages/peonyDetails/peonyDetails.js
 const app = getApp();
-var WxParse = require('../../wxParse/wxParse.js');
 Page({
 
   /**
@@ -93,7 +92,8 @@ Page({
         //console.log(res);
         if (res.data.code == "1000") {
           var article_content = res.data.data.content
-          article_content.replace(/<img/gi, '<img style="max-width:100%;height:auto;display:block" ');
+          // article_content.replace(/<img/gi, '<img style="max-width:100%;height:auto;display:block" ');
+          // article_content.replace(/\<img/gi, '<img style="width:100%;height:auto" ')
           that.setData({
             peonyDetailsImg: res.data.data.coverImageUrl,
             peonyDetailsname: res.data.data.name,
@@ -102,7 +102,6 @@ Page({
             article_content:article_content,
           })
           
-          // var temp = WxParse.wxParse('article', 'md', res.data.data.content, that)
         }
       },
       fail: function (err) {
@@ -112,7 +111,7 @@ Page({
         wx.showToast({
           title: '服务器错误',
           duration: 1000,
-          image: '../../images/shiban.png'
+          image: '../../images/donotfind.png'
         })
         setTimeout(function () { wx.hideToast() }, 1000)
       }

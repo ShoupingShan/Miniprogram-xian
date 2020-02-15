@@ -116,5 +116,13 @@ Page({
     wx.redirectTo({
       url: url
     })
+  },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    return {
+      title: '浑水摸鱼-西安瞰点'
+    }
   }
 })

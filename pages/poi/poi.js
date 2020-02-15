@@ -58,9 +58,12 @@ Page({
           choosenLatitude = markersData[0].latitude
           choosenLongitude = markersData[0].longitude
         }else{
+          choosenLongitude = ''
+          choosenLatitude = ''
           wx.showToast({
             title: '未找到相关信息',
-            duration: 1000
+            image:'../../images/donotfind.png',
+            duration: 1500
           })
         }
         
@@ -179,6 +182,13 @@ Page({
     that.setData({
       markers: markers
     });
+  },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    return {
+      title: '浑水摸鱼-西安瞰点'
+    }
   }
-
 })

@@ -65,6 +65,7 @@ Page({
 
   },
   getUserInfo: function (e) {
+    // console.log(e.detail)
     if (e.detail.userInfo){
       app.globalData.userInfo = e.detail.userInfo
       this.setData({
@@ -72,6 +73,17 @@ Page({
         hasUserInfo: true,
       })
     }else{
+      wx.showModal({
+        title: '温馨提示',
+        content: '为了您的更好体验，请登录您的昵称信息',
+        success: function (res) {
+          if (res.confirm) {
+            // console.log('用户点击确定')
+          } else if (res.cancel) {
+            // console.log('用户点击取消')
+          }
+        }
+      })  
       app.globalData.userInfo == 'None'
     }
   },
@@ -84,6 +96,14 @@ Page({
       wx.reLaunch({
         url: '../peonyHomePage/peonyHomePage'
       })
+    }
+  },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    return {
+      title: '浑水摸鱼-西安瞰点'
     }
   }
 })

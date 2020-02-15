@@ -5,6 +5,7 @@
   display: flex;
   -webkit-overflow-scrolling: touch;
   height:40px;
+  width:100%;
 }
 .jump_txt{
   height: 30px;
@@ -52,7 +53,7 @@
 } 
 
 .canvas_container {
-    height: 40%;
+    height: 65%;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -217,11 +218,18 @@
   font-family: "Microsoft YaHei";
 }
 
-.search_by_time_title{
-  /* height:40%; */
-}
 .search_by_time_txt{
   margin-left: 20rpx;
   font-size: 25rpx;
   color:#ccc;
+}
+.result-scope{
+  height:606rpx;
+  width:100%;
+  display: flex;
+  flex-direction: colum;
+  align-content: center;
+}
+.empty_roll{
+  height:60rpx;
 }
