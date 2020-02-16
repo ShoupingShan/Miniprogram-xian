@@ -47,8 +47,8 @@ App({
   globalData: {
     userInfo: 'None',
     codeId: '',
-    url: 'http://127.0.0.1:5000',
-    // url: 'https://hunshuimoyu.picp.vip',//服务器地址
+    // url: 'http://127.0.0.1:5000',
+    url: 'https://hunshuimoyu.picp.vip',//服务器地址
     peonyResultInfo: {},//从服务器获取的牡丹花信息
     uploadImg:'',
     peonyLocation:'', //存储用户地理位置信息

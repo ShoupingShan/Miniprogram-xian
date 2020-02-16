@@ -69,7 +69,7 @@
   <view class="canvas_container" hidden="{{hidden_statistic}}">
         <canvas canvas-id="lineCanvas_date" disable-scroll="true" class="canvas" bindtouchstart="touchHandler_1" data-template="acc"></canvas>
   </view>
-  <view class="empty_roll">---------------------------------------------</view>
+  <view class="empty_roll"></view>
   <view class="canvas_container" hidden="{{hidden_statistic}}">
         <canvas canvas-id="lineCanvas_user" disable-scroll="true" class="canvas" bindtouchstart="touchHandler_2" data-template="acc"></canvas>
   </view>

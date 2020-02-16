@@ -90,7 +90,7 @@ page {
 .image-item_name {
   width:55%;
   flex-direction: column;
-  line-height: 60rpx;
+  /* line-height: 60rpx; */
   margin-left: 10rpx;
   height: 100%;
 }
@@ -110,8 +110,8 @@ page {
 .temp_time{
   margin-left: 10rpx;
   font-size: 28rpx;
-  padding-top: 0rpx;
-  padding-bottom: 20rpx;
+  /* padding-top: 0rpx;
+  padding-bottom: 20rpx; */
   color:#ccc;
   font-family: "Microsoft YaHei";
 }

@@ -36,20 +36,20 @@ Page({
         _this.setData({
           // 存入data里面
           tempFilePath: tempFilePath,
-          isShow: false
+          isShow: false,
         })
         wx.getNetworkType({
           success: function(res) {
             if (res.networkType == "none") {
               _this.setData({
                 tempFilePath: '../../images/camera.png',
-                isShow: false,
+                isShow: true,
                 judgeNetWork: false,
               })
             } else {
               _this.setData({
                 judgeNetWork: true,
-                isShow: false,
+                // isShow: false,
                 tempFilePath: tempFilePath,
               })
               //上传服务器地址进行识别   
@@ -71,10 +71,18 @@ Page({
                   success: function(res) {
                     if (JSON.parse(res.data).code == "1000") {
                       app.globalData.peonyResultInfo = res.data;
+                      
                       //初始化数据页面跳转时
                       wx.navigateTo({
                         url: '../peonyResult/peonyResult'
                       })
+                      setTimeout(function () {
+                        _this.setData({
+                          isShow: true,
+                          tempFilePath: '../../images/camera.png',
+                        })
+                      }, 1000);
+                      
                     } else {
                       if (JSON.parse(res.data).code == "1100") {
                         _this.setData({
@@ -247,14 +255,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    var that = this;
-    if (that.data.isShow == false){
-       that.setData({
-      tempFilePath: '../../images/camera.png',
-      isShow: true
-    })
-    }
-  
+    // var that = this;
+    // if (that.data.isShow == false){
+    //    that.setData({
+    //   tempFilePath: '../../images/camera.png',
+    //   isShow: true
+    // })
+    // }
   },
   
   /**

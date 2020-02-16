@@ -231,5 +231,6 @@
   align-content: center;
 }
 .empty_roll{
-  height:60rpx;
+  height:100rpx;
+  background: rgb(240, 238, 238);
 }
