@@ -186,7 +186,17 @@ Page({
         app.globalData.longitude = data[0].longitude
       },
       fail: function (info) {
-        // wx.showModal({title:info.errMsg})
+        wx.showModal({
+          title: '温馨提示',
+          content: '如需开启定位服务，您可以在设置中开启位置信息',
+          success: function (res) {
+            if (res.confirm) {
+              // console.log('用户点击确定')
+            } else if (res.cancel) {
+              // console.log('用户点击取消')
+            }
+          }
+        })
       }
     })
 
@@ -235,7 +245,7 @@ Page({
           // console.log('用户点击取消')
         }
       }
-    })  
+    })
   },
   getUserInfo: function(e) {
     app.globalData.userInfo = e.detail.userInfo

@@ -71,74 +71,80 @@ Page({
           } catch (e) {
             console.error('getSystemInfoSync failed!');
           }
+          
           var canvas_height = 180;
-          var date_times = this.data.date_times;
-          var cate = this.data.date_cate;
+          if (this.data.date_cate.length != 0) {
+            var date_times = this.data.date_times;
+            var cate = this.data.date_cate;
 
-          lineChart1 = new wxCharts({
-            canvasId: 'lineCanvas_date',
-            type: 'line',
-            categories: cate,
-            animation: true,
-            // background: '#f5f5f5',
-            series: [{
-              name: '反馈次数',
-              data: date_times,
-              format: function (val, name) {
-                return val.toFixed(0) + '次';
-              }
-            }],
-            xAxis: {
-              disableGrid: true
-            },
-            yAxis: {
-              title: '反馈次数',
-              format: function (val) {
-                return val.toFixed(0);
+            lineChart1 = new wxCharts({
+              canvasId: 'lineCanvas_date',
+              type: 'line',
+              categories: cate,
+              animation: true,
+              // background: '#f5f5f5',
+              series: [{
+                name: '反馈次数',
+                data: date_times,
+                format: function (val, name) {
+                  return val.toFixed(0) + '次';
+                }
+              }],
+              xAxis: {
+                disableGrid: true
               },
-              min: 0
-            },
-            width: windowWidth * 375,
-            height: canvas_height,
-            dataLabel: false,
-            dataPointShape: false,
-            extra: {
-              lineStyle: 'curve'
-            }
-          });
-          var user_times = this.data.user_times;
-          var user_cate = this.data.user_cate;
-          lineChart2 = new wxCharts({
-            canvasId: 'lineCanvas_user',
-            type: 'column',
-            animation: true,
-            categories: user_cate,
-            series: [{
-              name: '用户名',
-              data: user_times,
-              format: function (val, name) {
-                return val.toFixed(0) + ' ';
-              }
-            }],
-            yAxis: {
-              format: function (val) {
-                return val + '次';
+              yAxis: {
+                title: '反馈次数',
+                format: function (val) {
+                  return val.toFixed(0);
+                },
+                min: 0
               },
-              title: '反馈次数',
-              min: 0
-            },
-            xAxis: {
-              disableGrid: false,
-              type: 'calibration'
-            },
-            extra: {
-              column: {
-                width: 15
+              width: windowWidth * 375,
+              height: canvas_height,
+              dataLabel: false,
+              dataPointShape: false,
+              extra: {
+                lineStyle: 'curve'
               }
-            },
-            width: windowWidth * 375,
-            height: canvas_height,
-          });
+            });
+          }
+          if (this.data.user_cate.length != 0){
+            var user_times = this.data.user_times;
+            var user_cate = this.data.user_cate;
+            lineChart2 = new wxCharts({
+              canvasId: 'lineCanvas_user',
+              type: 'column',
+              animation: true,
+              categories: user_cate,
+              series: [{
+                name: '用户名',
+                data: user_times,
+                format: function (val, name) {
+                  return val.toFixed(0) + ' ';
+                }
+              }],
+              yAxis: {
+                format: function (val) {
+                  return val + '次';
+                },
+                title: '反馈次数',
+                min: 0
+              },
+              xAxis: {
+                disableGrid: false,
+                type: 'calibration'
+              },
+              extra: {
+                column: {
+                  width: 15
+                }
+              },
+              width: windowWidth * 375,
+              height: canvas_height,
+            });
+          }
+          
         } else {
           wx.showToast({
             title: '获取失败',
@@ -344,74 +350,79 @@ Page({
             console.error('getSystemInfoSync failed!');
           }
           var canvas_height = 180;
-          var date_times = that.data.date_times;
-          var cate = that.data.date_cate;
+          if (that.data.date_cate.length != 0){
+            var date_times = that.data.date_times;
+            var cate = that.data.date_cate;
 
-          lineChart1 = new wxCharts({
-            canvasId: 'lineCanvas_date',
-            type: 'line',
-            categories: cate,
-            animation: true,
-            // background: '#f5f5f5',
-            series: [{
-              name: '反馈日期变化',
-              data: date_times,
-              format: function (val, name) {
-                return val.toFixed(0) + ' ';
-              }
-            }],
-            xAxis: {
-              disableGrid: true
-            },
-            yAxis: {
-              title: '反馈次数',
-              format: function (val) {
-                return val.toFixed(0);
+            lineChart1 = new wxCharts({
+              canvasId: 'lineCanvas_date',
+              type: 'line',
+              categories: cate,
+              animation: true,
+              // background: '#f5f5f5',
+              series: [{
+                name: '反馈日期变化',
+                data: date_times,
+                format: function (val, name) {
+                  return val.toFixed(0) + ' ';
+                }
+              }],
+              xAxis: {
+                disableGrid: true
               },
-              min: 0
-            },
-            width: windowWidth * 375,
-            height: canvas_height,
-            dataLabel: false,
-            dataPointShape: false,
-            extra: {
-              lineStyle: 'curve'
-            }
-          });
-
-          var user_times = that.data.user_times;
-          var user_cate = that.data.user_cate;
-          lineChart2 = new wxCharts({
-            canvasId: 'lineCanvas_user',
-            type: 'column',
-            animation: true,
-            categories: user_cate,
-            series: [{
-              name: '用户名',
-              data: user_times,
-              format: function (val, name) {
-                return val.toFixed(0) + ' ';
-              }
-            }],
-            yAxis: {
-              format: function (val) {
-                return val + '次';
+              yAxis: {
+                title: '反馈次数',
+                format: function (val) {
+                  return val.toFixed(0);
+                },
+                min: 0
               },
-              title: '反馈次数',
-              min: 0
-            },
-            xAxis: {
-              disableGrid: false,
-              type: 'calibration'
-            },
-            extra: {
-              column: {
-                width: 15
+              width: windowWidth * 375,
+              height: canvas_height,
+              dataLabel: false,
+              dataPointShape: false,
+              extra: {
+                lineStyle: 'curve'
               }
-            },
-            width: windowWidth * 375,
-            height: canvas_height,
-          });
+            });
+          }
+          
+          if (that.data.user_cate.length != 0){
+            var user_times = that.data.user_times;
+            var user_cate = that.data.user_cate;
+            lineChart2 = new wxCharts({
+              canvasId: 'lineCanvas_user',
+              type: 'column',
+              animation: true,
+              categories: user_cate,
+              series: [{
+                name: '用户名',
+                data: user_times,
+                format: function (val, name) {
+                  return val.toFixed(0) + ' ';
+                }
+              }],
+              yAxis: {
+                format: function (val) {
+                  return val + '次';
+                },
+                title: '反馈次数',
+                min: 0
+              },
+              xAxis: {
+                disableGrid: false,
+                type: 'calibration'
+              },
+              extra: {
+                column: {
+                  width: 15
+                }
+              },
+              width: windowWidth * 375,
+              height: canvas_height,
+            });
+          }
+          
         }else {
           wx.showToast({
             title: '未查询到信息',

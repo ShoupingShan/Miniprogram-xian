@@ -70,7 +70,7 @@ Page({
           }
           var canvas_height = 250;
 
-          if (this.data.date_cate){
+          if (this.data.date_cate.length!= 0){
             var date_times = this.data.date_times;
             var cate = this.data.date_cate;
 
@@ -107,7 +107,7 @@ Page({
               height: canvas_height,
             });
           }
-          if (this.data.user_cate){
+          if (this.data.user_cate.length != 0){
             var user_times = this.data.user_times;
             var user_cate = this.data.user_cate;
             lineChart2 = new wxCharts({
@@ -247,7 +247,7 @@ Page({
             console.error('getSystemInfoSync failed!');
           }
           var canvas_height = 250;
-          if (that.data.date_cate){
+          if (that.data.date_cate.length != 0){
             var date_times = this.data.date_times;
             var cate = this.data.date_cate;
 
@@ -284,7 +284,7 @@ Page({
               height: canvas_height,
             });
           }
-          if (that.data.user_cate){
+          if (that.data.user_cate.length != 0){
             var user_times = this.data.user_times;
             var user_cate = this.data.user_cate;
             lineChart2 = new wxCharts({
@@ -375,7 +375,7 @@ Page({
           }
           var canvas_height = 250;
 
-          if (that.data.date_cate){
+          if (that.data.date_cate.length != 0){
             var date_times = this.data.date_times;
             var cate = this.data.date_cate;
 
@@ -412,7 +412,7 @@ Page({
               height: canvas_height,
             });
           }
-          if (that.data.user_cate){
+          if (that.data.user_cate.length != 0){
             var user_times = this.data.user_times;
             var user_cate = this.data.user_cate;
             lineChart2 = new wxCharts({

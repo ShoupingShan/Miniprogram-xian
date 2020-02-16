@@ -119,7 +119,20 @@ Page({
       },
       fail: function(info){
         console.log('Unseccessful')
-        wx.showModal({title:info.errMsg})
+        wx.showModal({
+          title: '温馨提示',
+          content: '暂无定位权限，请您在小程序设置中开启位置服务，以免影响您的使用',
+          success: function (res) {
+            if (res.confirm) {
+              // console.log('用户点击确定')
+            } else if (res.cancel) {
+              // console.log('用户点击取消')
+            }
+          }
+        })
+        // wx.showModal({title:info.errMsg})
+        
+
       }
     }
     if(e && e.keywords){
@@ -127,7 +140,7 @@ Page({
     }
     myAmapFun.getPoiAround(params)
   },
-
+  
   go2distination: function(e){
     // console.log(this.data.currentLatitude, this.data.currentLongitude, choosenLatitude, choosenLongitude);
     var url = '../goto/navigation_car/navigation';

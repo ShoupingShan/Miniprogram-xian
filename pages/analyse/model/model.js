@@ -108,120 +108,126 @@ Page({
             console.error('getSystemInfoSync failed!');
           }
           var canvas_height = 250;
-          var train_acc = this.data.train_acc;
-          var eval_acc = this.data.eval_acc;
-          var epoch = this.data.epoch;
+          if (this.data.train_acc.length != 0){
+            var train_acc = this.data.train_acc;
+            var eval_acc = this.data.eval_acc;
+            var epoch = this.data.epoch;
 
-          lineChart1 = new wxCharts({
-            canvasId: 'lineCanvas_acc',
-            type: 'line',
-            categories: epoch,
-            animation: true,
-            // background: '#f5f5f5',
-            series: [{
-              name: '训练集',
-              data: train_acc,
-              format: function (val, name) {
-                return val.toFixed(2) + ' ';
-              }
-            }, {
-              name: '验证集',
-              data: eval_acc,
-              format: function (val, name) {
-                return val.toFixed(2) + ' ';
-              }
-            }],
-            xAxis: {
-              disableGrid: true
-            },
-            yAxis: {
-              title: '正确率',
-              format: function (val) {
-                return val.toFixed(2);
+            lineChart1 = new wxCharts({
+              canvasId: 'lineCanvas_acc',
+              type: 'line',
+              categories: epoch,
+              animation: true,
+              // background: '#f5f5f5',
+              series: [{
+                name: '训练集',
+                data: train_acc,
+                format: function (val, name) {
+                  return val.toFixed(2) + ' ';
+                }
+              }, {
+                name: '验证集',
+                data: eval_acc,
+                format: function (val, name) {
+                  return val.toFixed(2) + ' ';
+                }
+              }],
+              xAxis: {
+                disableGrid: true
               },
-              min: 0
-            },
-            width: windowWidth * 375,
-            height: canvas_height,
-            dataLabel: false,
-            dataPointShape: false,
-            extra: {
-              lineStyle: 'curve'
-            }
-          });
-          var train_loss = this.data.train_loss;
-          var eval_loss = this.data.eval_loss;
-          lineChart2 = new wxCharts({
-            canvasId: 'lineCanvas_loss',
-            type: 'line',
-            categories: epoch,
-            animation: true,
-            // background: '#f5f5f5',
-            series: [{
-              name: '训练集',
-              data: train_loss,
-              format: function (val, name) {
-                return val.toFixed(2) + ' ';
-              }
-            }, {
-              name: '验证集',
-              data: eval_loss,
-              format: function (val, name) {
-                return val.toFixed(2) + ' ';
-              }
-            }],
-            xAxis: {
-              disableGrid: true
-            },
-            yAxis: {
-              title: '损失',
-              format: function (val) {
-                return val.toFixed(2);
+              yAxis: {
+                title: '正确率',
+                format: function (val) {
+                  return val.toFixed(2);
+                },
+                min: 0
               },
-              min: 0
-            },
-            width: windowWidth * 375,
-            height: canvas_height,
-            dataLabel: false,
-            dataPointShape: false,
-            extra: {
-              lineStyle: 'curve'
-            }
-          });
+              width: windowWidth * 375,
+              height: canvas_height,
+              dataLabel: false,
+              dataPointShape: false,
+              extra: {
+                lineStyle: 'curve'
+              }
+            });
+          }
+          if (this.data.train_loss.length != 0){
+            var train_loss = this.data.train_loss;
+            var eval_loss = this.data.eval_loss;
+            lineChart2 = new wxCharts({
+              canvasId: 'lineCanvas_loss',
+              type: 'line',
+              categories: epoch,
+              animation: true,
+              // background: '#f5f5f5',
+              series: [{
+                name: '训练集',
+                data: train_loss,
+                format: function (val, name) {
+                  return val.toFixed(2) + ' ';
+                }
+              }, {
+                name: '验证集',
+                data: eval_loss,
+                format: function (val, name) {
+                  return val.toFixed(2) + ' ';
+                }
+              }],
+              xAxis: {
+                disableGrid: true
+              },
+              yAxis: {
+                title: '损失',
+                format: function (val) {
+                  return val.toFixed(2);
+                },
+                min: 0
+              },
+              width: windowWidth * 375,
+              height: canvas_height,
+              dataLabel: false,
+              dataPointShape: false,
+              extra: {
+                lineStyle: 'curve'
+              }
+            });
+          }
+          if (this.data.lr.length != 0){
+            var lr = this.data.lr;
+            lineChart3 = new wxCharts({
+              canvasId: 'lineCanvas_lr',
+              type: 'line',
+              categories: epoch,
+              animation: true,
+              // background: '#f5f5f5',
+              series: [{
+                name: '学习率',
+                data: lr,
+                format: function (val, name) {
+                  return val.toFixed(2) + ' ';
+                }
+              }],
+              xAxis: {
+                disableGrid: true
+              },
+              yAxis: {
+                title: '学习率',
+                format: function (val) {
+                  return val.toFixed(2);
+                },
+                min: 0
+              },
+              width: windowWidth * 375,
+              height: canvas_height,
+              dataLabel: false,
+              dataPointShape: false,
+              extra: {
+                lineStyle: 'curve'
+              }
+            });
 
-          var lr = this.data.lr;
-          lineChart3 = new wxCharts({
-            canvasId: 'lineCanvas_lr',
-            type: 'line',
-            categories: epoch,
-            animation: true,
-            // background: '#f5f5f5',
-            series: [{
-              name: '学习率',
-              data: lr,
-              format: function (val, name) {
-                return val.toFixed(2) + ' ';
-              }
-            }],
-            xAxis: {
-              disableGrid: true
-            },
-            yAxis: {
-              title: '学习率',
-              format: function (val) {
-                return val.toFixed(2);
-              },
-              min: 0
-            },
-            width: windowWidth * 375,
-            height: canvas_height,
-            dataLabel: false,
-            dataPointShape: false,
-            extra: {
-              lineStyle: 'curve'
-            }
-          });
-
+          }
+          
         } else {
           wx.showToast({
             title: '获取失败',
