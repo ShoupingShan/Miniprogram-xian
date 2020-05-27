@@ -256,7 +256,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '浑水摸鱼-西安瞰点'
+      title: '浑水摸鱼-识秦通'
     }
   }
 })
